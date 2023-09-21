@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrarse</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>
+        main.login{
+            background-image: url({% static 'images/login.jpg' %});
+        }
+    </style>
+</head>
+<body>
+    <main class="login">
+        <form method="post"> {% csrf_token %}
+            <strong>Registrarse</strong>
+            <ul>
+                {{form.as_ul}}
+            </ul>
+            <button type="submit"> 
+                Registrarse
+            </button>
+            <nav>
+              <span><a href="{% url 'LoginView' %}">< Volver a iniciar sesión</a></span> 
+            </nav>
+        </form>
+    </main>
+    <div id="load-page">
+        <div class="lds-grid"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+      </div>  
+</body>
+<script>
+    const loading = document.querySelector('#load-page');
+    const backgroundImage = new Image();
+    const usernameInput = document.querySelector('#id_username');
+    const passwordInput1 = document.querySelector('#id_password1');
+    const passwordInput2 = document.querySelector('#id_password2');
+    const emailInput = document.querySelector('#id_email');
+
+    const usernamePlaceholder = 'Usuario';
+    const passwordPlaceholder1 = 'Contraseña';
+    const passwordPlaceholder2 = 'Confirmar contraseña';
+    const emailInputPlaceholder = 'Email';
+
+    usernameInput.placeholder = usernamePlaceholder;
+    passwordInput1.placeholder = passwordPlaceholder1;
+    passwordInput2.placeholder = passwordPlaceholder2;
+    emailInput.placeholder = emailInputPlaceholder;
+
+    backgroundImage.src = "{% static 'images/login.jpg' %}";
+
+    backgroundImage.onload = function() {
+        // Inicia el proceso de desvanecimiento
+        fadeOut(loading);
+    };
+
+    function fadeOut(element) {
+        let opacity = 1;
+        const fadeInterval = setInterval(function() {
+            opacity -= 0.05; // Puedes ajustar la velocidad de desvanecimiento cambiando este valor
+            element.style.opacity = opacity;
+            if (opacity <= 0) {
+                clearInterval(fadeInterval);
+                element.style.display = 'none'; // Oculta el elemento después del desvanecimiento
+            }
+        }, 50); // El tiempo entre cada paso del desvanecimiento (en milisegundos)
+    }
+
+</script>
+</html>

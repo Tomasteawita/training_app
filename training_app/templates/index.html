@@ -1,0 +1,17 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block title %}Sea training{% endblock title %}
+{% block main %}
+<main class="index">
+    <nav>
+        <div><a href="{% url 'IndexView' %}">Tablero</a></div>
+    </nav>
+    <section class="welcom">
+        <h2>Bienvenido, nos alegra mucho tu presencia :D</h2>
+        <strong>Para inicies tu experiencia planificando entrenamientos en la app:</strong>
+    </section>
+    <aside>
+        <a href="{% url 'PlanificadorListView' %}">Click acá</a>
+    </aside>
+</main>
+{% endblock main %}

@@ -1,0 +1,43 @@
+{% extends "base/base.html" %}
+{% load static %}
+{% block title %}Planificador{% endblock title %}
+{% block main %}
+<main class="planificador">
+    <nav>
+        <div><a href="{% url 'IndexView' %}">Tablero</a><span> > </span><a href="{% url 'PlanificadorListView' %}">Planificador</a></div>
+    </nav>
+    
+    {% if periods %}
+    <section class="periods">
+        {% for periodo_id, periodo_data in periods.items %}
+        <article class="card-period">
+            <h2><span>Período {{ periodo_id }}</span></h2>
+            <div class="week-layout">
+            {% for semana, dias in periodo_data.weeks.items %}
+                <div class="week-card">
+                <h3>{{ semana }}</h3>
+                <ul>
+                    {% for dia, estado in dias.items %}
+                    <li>{{ dia|first }}</li>
+                    {% endfor %}
+                </ul>
+                </div>
+            {% endfor %}
+            </div>
+        </article>
+        {% endfor %}
+    </section>
+    {% else %}
+    <section class="welcom">
+        <h2>Vamos a empezar creando un periodo:</h2>
+        <strong>Un periodo son 4 semanas de entrenamiento, aproximadamente 1 mes</strong>
+    </section>
+    {% endif %}
+    <section class="add-period">
+        <form action="{% url 'PlanificadorListView' %}" method="post">
+            {% csrf_token %}
+            <button type="submit"><i class="bi bi-plus-lg"></i><span>Agregar periodo</span></button>
+        </form>
+    </section>
+</main>
+{% endblock main %}

@@ -1,0 +1,44 @@
+main.planificador{
+    section.welcom{
+        h2{
+            margin:0px 12px
+        }
+        h2 + strong{
+            display: inline-block;
+            padding: 0px 24px;
+        }
+    }
+    section.add-period{
+        form{
+            @include grid-center();
+            margin: 24px 0px;
+            button{
+                @include btn($white-button,$black,8px,14px,500);
+                padding: 8px 16px;
+                i{
+                    margin: 8px;
+                }
+            }
+        }
+    }
+    section.periods{
+        @include flex(column, center, center);
+        article.card-period{
+            border: 1px solud $black;
+            @include flex(column, center, center);
+            div.week-layout{
+                @include flex(column, center, center);
+                div.week-card{
+                    @include flex(row, center, center);
+                    ul{
+                        @include flex(row, center, center);
+                        list-style-type: none;
+                        li{
+                            font-size: 11px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

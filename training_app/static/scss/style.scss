@@ -1,0 +1,26 @@
+@import 'utils/vars';
+@import 'utils/mixins';
+@import 'utils/class';
+@import 'base/header';
+@import 'base/footer';
+@import 'login/login';
+@import 'animations/load_images';
+@import 'utils/navegations';
+@import 'index/welcom';
+@import 'planificador/period';
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: $white
+}
+
+main{
+    min-height: 600px;
+    nav{
+        margin: 72px 0px 32px 0px;
+    }
+}

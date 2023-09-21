@@ -1,0 +1,26 @@
+main.index{
+    aside{
+        @include grid-center();
+        margin: 24px 0px;
+        a{
+            @include btn($white-button,$black,8px,14px,500);
+            padding: 8px 16px;
+        }
+    }
+}
+
+.welcom{
+    font-family: Roboto, system-ui;
+    @include grid-center();
+    gap: 24px;
+    text-align: center;
+    margin: 52px 0px;
+    h2{
+        font-size: 18px;
+        font-weight: bold;
+    }
+    strong{
+        font-size: 15px;
+        font-weight: medium;
+    }
+}

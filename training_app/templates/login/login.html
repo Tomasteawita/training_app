@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio de sesión</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>
+        main.login{
+            background-image: url({% static 'images/login.jpg' %});
+        }
+    </style>
+</head>
+<body>
+    <main class="login">
+        <form method="post"> {% csrf_token %}
+            <strong>Iniciar sesion</strong>
+            <ul>
+                {{form.as_ul}}
+            </ul>
+            <button type="submit"> 
+                Iniciar sesion
+            </button>
+            <a href="{% url 'SingUpView' %}"><span>Registrarse</span></a>
+            <nav>
+              <span><a href="{% url 'SingUpView' %}">¿Olvidaste tu contraseña?</a></span> 
+            </nav>
+        </form>
+    </main>
+    <div id="load-page">
+        <div class="lds-grid"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+      </div>  
+</body>
+<script>
+    const loading = document.querySelector('#load-page');
+    const backgroundImage = new Image();
+    const usernameInput = document.getElementById('id_username');
+    const passwordInput = document.getElementById('id_password');
+
+    const usernamePlaceholder = 'Usuario';
+    const passwordPlaceholder = 'Contraseña';
+
+    usernameInput.placeholder = usernamePlaceholder;
+    passwordInput.placeholder = passwordPlaceholder;
+    backgroundImage.src = "{% static 'images/login.jpg' %}";
+
+    backgroundImage.onload = function() {
+        // Inicia el proceso de desvanecimiento
+        fadeOut(loading);
+    };
+
+    function fadeOut(element) {
+        let opacity = 1;
+        const fadeInterval = setInterval(function() {
+            opacity -= 0.05; // Puedes ajustar la velocidad de desvanecimiento cambiando este valor
+            element.style.opacity = opacity;
+            if (opacity <= 0) {
+                clearInterval(fadeInterval);
+                element.style.display = 'none'; // Oculta el elemento después del desvanecimiento
+            }
+        }, 50); // El tiempo entre cada paso del desvanecimiento (en milisegundos)
+    }
+
+</script>
+</html>

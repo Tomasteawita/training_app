@@ -1,0 +1,175 @@
+$min-width: 800px;
+$max-width: 1024px;
+$min-width-desktop: 1024px;
+
+main.login {
+  height: 100vh;
+  display: grid;
+  place-content: center;
+  font-family: Roboto, system-ui;
+
+  @media only screen and (min-width: $min-width) and (max-width: $max-width) and (min-heigth:1190px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+
+    form {
+      margin-top: 225px;
+    }
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid $violet;
+    width: 256px;
+    height: fit-content;
+    border-radius: 8px;
+    border: 2px solid rgba(249, 249, 249, 0.25);
+    background: rgba(241, 233, 254, 0.80);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    padding: 12px 0 16px 0;
+
+    strong {
+      color: $black;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: normal;
+    }
+
+    ul {
+      list-style-type: none;
+      display: flex;
+      flex-direction: column;
+      margin: 12px 21px;
+      align-items: start;
+      justify-content: space-evenly;
+
+      li {
+        margin: 6px auto;
+        height: 24px;
+        ul.errorlist{
+          margin: 0;
+          li{
+            font-size: 10px;
+            color: nth($statusDefault, 1);
+            height: auto;
+            margin: 0;
+          }
+        }
+
+        @media only screen and (min-width: $min-width) {
+          height: 32px;
+        }
+
+        label {
+          display: none;
+        }
+
+        input {
+          width: 200px;
+          height: 24px;
+          border-radius: 12px;
+          border: none;
+          background: $white;
+          box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.25);
+          font-size: 12px;
+          padding: 4px 16px;
+          margin-top: 12px;
+          &:focus {
+            outline: none;
+            border: 1px solid $pink;
+          }
+
+          @media only screen and (min-width: $min-width) {
+            width: 281px;
+            height: 32px;
+          }
+        }
+      }
+
+      @media only screen and (min-width: $min-width) {
+        margin: 32px auto 24px auto;
+
+        li {
+          input {
+            margin: 0;
+          }
+        }
+      }
+    }
+
+    button {
+      @include btn($violet, $white, 8px, 12px, 500);
+      margin-top: 12px;
+      padding: 4px 16px;
+      width: 200px;
+      height: 24px;
+
+      @media only screen and (min-width: $min-width) {
+        width: 281px;
+        height: 32px;
+      }
+    }
+
+    > a {
+      @include btn-transparent(1px solid $violet, $violet, 8px, 12px, 500);
+      padding: 4px 16px;
+      display: grid;
+      place-content: center;
+
+      span {
+        display: inline-block;
+      }
+    }
+
+    > button + a {
+      margin: 8px auto;
+      width: 200px;
+      height: 24px;
+
+      @media only screen and (min-width: $min-width) {
+        width: 281px;
+        height: 32px;
+      }
+    }
+
+    nav {
+      margin-top: 8px;
+      a {
+        font-size: 11px;
+        font-weight: 300;
+        text-decoration: none;
+        cursor: pointer;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+
+      @media only screen and (min-width: $min-width) {
+        margin-top: 24px;
+      }
+    }
+  }
+
+  @media only screen and (min-width: $min-width) {
+    form {
+      width: 360px;
+      height: 383px;
+
+      strong {
+        font-size: 16px;
+      }
+    }
+  }
+}
+
+.helptext{
+  display: none;
+}
+

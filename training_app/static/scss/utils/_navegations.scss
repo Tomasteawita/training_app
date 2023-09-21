@@ -1,0 +1,21 @@
+main{
+    nav{
+        font-family: Roboto, system-ui;
+        font-size: 12px;
+        font-weight: 400;
+        div{
+            @include flex(row,start,start);
+            margin: 24px;
+            a{
+                text-decoration: none;
+                &:hover{
+                    text-decoration: underline;
+                }
+            }
+            span{
+                color: nth($grayList, 1);
+                margin: 0px 8px;
+            }
+        }
+    }
+}
