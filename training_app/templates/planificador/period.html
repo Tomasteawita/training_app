@@ -17,8 +17,8 @@
                 <div class="week-card">
                 <h3>{{ semana }}</h3>
                 <ul>
-                    {% for dia, estado in dias.items %}
-                    <li>{{ dia|first }}</li>
+                    {% for dia, info in dias.items %}
+                    <li><a href="#">{{ dia|first }}</a></li>
                     {% endfor %}
                 </ul>
                 </div>

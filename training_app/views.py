@@ -63,6 +63,25 @@ class PlanificadorListView(LoginRequiredMixin, View):
         context = {'periods' : periods}
         return render(request, self.template_name, context = context)
 
+
+class TrainingConfigurationView(LoginRequiredMixin, View):
+    """
+    Vista basada en clase para el detalle de un planificador.
+    Esta vista muestra el detalle de un planificador.
+    Attributes:
+        template_name (str): El nombre de la plantilla HTML a utilizar para renderizar la página.
+
+    Method:
+        get(self, request): Procesa una solicitud GET para mostrar el detalle de un planificador.
+    """
+    template_name = 'planificador/training_configuration.html'
+    
+    def get(self, request, *args, **kwargs):
+        planificador = Planificador(request)
+        period = planificador.read_period_week_day_database(kwargs['pk'])
+        context = {'period' : period}
+        return render(request, self.template_name, context = context)
+
 class SingUpView(CreateView):
     """
     Vista para el registro de usuarios.
