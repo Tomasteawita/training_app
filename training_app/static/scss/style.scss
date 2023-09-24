@@ -8,6 +8,8 @@
 @import 'utils/navegations';
 @import 'index/welcom';
 @import 'planificador/period';
+@import 'planificador/training-session';
+@import 'planificador/card';
 *{
     margin: 0;
     padding: 0;
@@ -20,7 +22,7 @@ body{
 
 main{
     min-height: 600px;
-    nav{
+    >nav{
         margin: 72px 0px 32px 0px;
     }
 }

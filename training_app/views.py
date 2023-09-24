@@ -64,7 +64,7 @@ class PlanificadorListView(LoginRequiredMixin, View):
         return render(request, self.template_name, context = context)
 
 
-class TrainingConfigurationView(LoginRequiredMixin, View):
+class CreateTrainingView(LoginRequiredMixin, View):
     """
     Vista basada en clase para el detalle de un planificador.
     Esta vista muestra el detalle de un planificador.
@@ -74,13 +74,13 @@ class TrainingConfigurationView(LoginRequiredMixin, View):
     Method:
         get(self, request): Procesa una solicitud GET para mostrar el detalle de un planificador.
     """
-    template_name = 'planificador/training_configuration.html'
+    template_name = 'planificador/create_training.html'
     
     def get(self, request, *args, **kwargs):
-        planificador = Planificador(request)
-        period = planificador.read_period_week_day_database(kwargs['pk'])
-        context = {'period' : period}
-        return render(request, self.template_name, context = context)
+        # planificador = Planificador(request)
+        # period = planificador.read_period_week_day_database(kwargs['pk'])
+        # context = {'period' : period}
+        return render(request, self.template_name)
 
 class SingUpView(CreateView):
     """

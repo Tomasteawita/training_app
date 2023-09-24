@@ -494,6 +494,7 @@ main nav div {
 }
 main nav div a {
   text-decoration: none;
+  color: #7952B3;
 }
 main nav div a:hover {
   text-decoration: underline;
@@ -679,6 +680,25 @@ main.planificador section.periods article.card-period div.week-layout div.week-c
   color: #0D0C0B;
 }
 
+section.training-session aside {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: none;
+  gap: 10px;
+  margin: 24px 12px;
+  background-color: #FFFFFF;
+  border-radius: 4px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  min-height: 300px;
+}
+section.training-session aside > nav div span {
+  color: #0CCAF1;
+}
+
+section.training-session article.card {
+  border: 1px solid black;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -692,7 +712,7 @@ body {
 main {
   min-height: 600px;
 }
-main nav {
+main > nav {
   margin: 72px 0px 32px 0px;
 }
 

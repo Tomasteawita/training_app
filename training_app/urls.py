@@ -6,7 +6,7 @@ from django.conf.urls.static import static
 
 url_planificador = [
     path('planificador/', PlanificadorListView.as_view(), name = "PlanificadorListView"),
-    path('planificador/training_post/', TrainingConfigurationView.as_view(), name = "PlanificadorCreateView"),
+    path('planificador/<pk>/', CreateTrainingView.as_view(), name = "CreateTrainingView"),
 ]
 
 urlpatterns = [

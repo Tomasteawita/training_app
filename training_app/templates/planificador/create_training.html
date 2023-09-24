@@ -1,0 +1,63 @@
+{% extends "base/base.html" %}
+{% load static %}
+{% block title %}Creación de entrenamiento{% endblock title %}
+{% block main %}
+
+<main>
+    <nav>
+        <div><a href="{% url 'IndexView' %}">Tablero</a><span> > </span><a href="{% url 'PlanificadorListView' %}">Planificador</a><span> > </span><a href="#">Domingo</a></div>
+    </nav>
+    <section class="training-session">
+        <aside>
+            <nav>
+                <div><a href="{% url 'IndexView' %}">Tablero</a><span> > </span><a href="{% url 'PlanificadorListView' %}">Planificador</a><span> > </span><a href="#">Domingo</a></div>
+            </nav>
+            <form action="" method="post">
+                <div>
+                    <label for="ejercicios">Escribe el nombre de un ejercicio:</label>
+                    <input type="text" id="ejercicios" list="lista-ejercicios">
+                    <datalist id="lista-ejercicios">
+                        <option value="Press de Banca">
+                        <option value="Sentadillas">
+                        <option value="Pull-Ups">
+                        <option value="Flexiones">
+                        <option value="Press Militar">
+                        <option value="Peso Muerto">
+                        <option value="Plancha">
+                        <option value="Curl de Bíceps">
+                        <option value="Tríceps en polea">
+                        <option value="Abdominales">
+                        <option value="Burpees">
+                        <option value="Zancadas">
+                    </datalist>
+                </div>
+                <div id="training">
+                    <article class="card">
+                        <div class="card-header">
+                            <input type="text" id="name_exercise_${id}" name="name_exercise_${id}" class="form-control" readonly value="0">
+                            <span>
+                                <i class="bi bi-arrow-right"></i>
+                            </span>
+                            <span>Repeticiones</span>
+                            <div class="card-header__reps-conf">
+                                <a href="#" id=add-reps-exercise-${id}>+</a>
+                                <input type="text" id="exercise_${id}" name="exercise_${id}" class="form-control" readonly value="0">
+                                <a href="#" id=sub-reps-exercise-${id}>-</a>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <a href="#" id="add-exercise"><i class="bi bi-plus-lg"></i><span>Agregar ejercicio</span></a>
+                        </div>
+                    </article>
+                    <a href="#" id="add-block"><i class="bi bi-plus-lg"></i><span>Agregar bloque</span></a>
+                </div>
+            </form>
+        </aside>
+    </section>
+</main>
+{% endblock main %}
+
+{% block scripts %}
+    <script src="{% static 'js/TrainingDatalist.js' %}"></script>
+    <script src="{% static 'js/TrainingSession.js' %}"></script>
+{% endblock scripts %}

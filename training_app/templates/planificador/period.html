@@ -18,7 +18,7 @@
                 <h3>{{ semana }}</h3>
                 <ul>
                     {% for dia, info in dias.items %}
-                    <li><a href="#">{{ dia|first }}</a></li>
+                    <li><a href="{% url 'CreateTrainingView' info.id_combination %}">{{ dia|first }}</a></li>
                     {% endfor %}
                 </ul>
                 </div>
