@@ -1,5 +1,5 @@
 section.training-session{
-    aside{
+    >aside{
         >nav{
             div{
                 span{
@@ -13,5 +13,6 @@ section.training-session{
         border-radius:4px ;
         box-shadow: $drop-shadow;
         min-height: 300px;
+        width: 310px;
     }
 }

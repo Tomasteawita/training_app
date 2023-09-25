@@ -34,19 +34,39 @@
                 <div id="training">
                     <article class="card">
                         <div class="card-header">
-                            <input type="text" id="name_exercise_${id}" name="name_exercise_${id}" class="form-control" readonly value="0">
+                            <input type="text" id="name_exercise_${id}" name="name_exercise_${id}" class="form-control" placeholder="Ejercicio">
                             <span>
                                 <i class="bi bi-arrow-right"></i>
                             </span>
                             <span>Repeticiones</span>
                             <div class="card-header__reps-conf">
-                                <a href="#" id=add-reps-exercise-${id}>+</a>
+                                <a href="#" id=add-reps-exercise-${id}><i class="bi bi-plus-lg"></i></a>
                                 <input type="text" id="exercise_${id}" name="exercise_${id}" class="form-control" readonly value="0">
-                                <a href="#" id=sub-reps-exercise-${id}>-</a>
+                                <a href="#" id=sub-reps-exercise-${id}><i class="bi bi-dash-lg"></i></a>
                             </div>
                         </div>
-                        <div class="card-body">
-                            <a href="#" id="add-exercise"><i class="bi bi-plus-lg"></i><span>Agregar ejercicio</span></a>
+                        <div id="exercises-layout">
+                            <article class="block-exercises">
+                                <input type="text">
+                                <aside class="exercises-layout__kgs-reps">
+                                    <div>
+                                        <span>Kgs</span>
+                                        <input type="text" id="kgs_${id}" name="kgs_${id}" class="form-control" readonly value="0">
+                                    </div>
+                                    <div>
+                                        <span>Reps</span>
+                                        <input type="text" id="reps_${id}" name="reps_${id}" class="form-control" readonly value="0">
+                                    </div>
+                                </aside>
+                                <ul class="complete-all-inputs">
+                                    <li><input type="text"><label for="" id="apply-reps-all">Todas</label></li>
+                                    <li><input type="text"><label for="" id="apply-kg-all">Todas</label></li>
+                                </ul>
+                                <div class="RPE">
+                                    <span>RPE</span>
+                                    <input type="text" id="rpe_${id}" name="rpe_${id}" class="form-control" readonly value="0">
+                                </div>
+                            </article>
                         </div>
                     </article>
                     <a href="#" id="add-block"><i class="bi bi-plus-lg"></i><span>Agregar bloque</span></a>

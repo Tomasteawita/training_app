@@ -680,7 +680,7 @@ main.planificador section.periods article.card-period div.week-layout div.week-c
   color: #0D0C0B;
 }
 
-section.training-session aside {
+section.training-session > aside {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: none;
@@ -690,13 +690,170 @@ section.training-session aside {
   border-radius: 4px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   min-height: 300px;
+  width: 310px;
 }
-section.training-session aside > nav div span {
+section.training-session > aside > nav div span {
   color: #0CCAF1;
 }
 
 section.training-session article.card {
-  border: 1px solid black;
+  border: 1px solid #D2D2D2;
+  border-radius: 4px;
+  width: 300px;
+  margin-top: 12px;
+  background-color: #F9F9F9;
+  font-family: Roboto, system-ui;
+}
+section.training-session article.card div.card-header {
+  display: grid;
+  grid-template-columns: 3fr 0.5fr 3fr 3fr;
+  grid-template-rows: 1fr;
+  gap: 4px;
+  grid-template-areas: "input arrow text card-header__reps-conf";
+  justify-items: flex-start;
+  align-items: center;
+  background-color: #ECEDEC;
+  border-bottom: 1px solid #D2D2D2;
+  border-radius: 4px 4px 0 0;
+}
+section.training-session article.card div.card-header input {
+  border-radius: 4px;
+  border: 1px solid #D2D2D2;
+}
+section.training-session article.card div.card-header input:focus {
+  border-color: #7952B3;
+}
+section.training-session article.card div.card-header > input {
+  width: 83px;
+  height: 17px;
+  grid-area: input;
+  margin-left: 8px;
+}
+section.training-session article.card div.card-header > span:first-child {
+  grid-area: arrow;
+  color: #0D0C0B;
+}
+section.training-session article.card div.card-header > span:last-child {
+  grid-area: text;
+  color: #0D0C0B;
+}
+section.training-session article.card div.card-header div.card-header__reps-conf {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  grid-area: card-header__reps-conf;
+  width: 100%;
+}
+section.training-session article.card div.card-header div.card-header__reps-conf a {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  color: #0D0C0B;
+  text-decoration: none;
+}
+section.training-session article.card div.card-header div.card-header__reps-conf input {
+  width: 17px;
+  height: 17px;
+  border: none;
+  border-radius: 4px;
+  background-color: #FFFFFF;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: #0D0C0B;
+  text-align: center;
+}
+section.training-session article.card div.card-header div.card-header__reps-conf input:focus {
+  border-color: #7952B3;
+}
+section.training-session article.card div#exercises-layout article.block-exercises {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  grid-template-rows: 1fr 4fr 1fr;
+  gap: 4px;
+  grid-template-areas: "name name" "exercises-layout__kgs-reps complete-all-inputs" "RPE RPE";
+  width: 100%;
+  max-height: 200px;
+}
+section.training-session article.card div#exercises-layout article.block-exercises > input {
+  width: 116px;
+  height: 21px;
+  grid-area: name;
+}
+section.training-session article.card div#exercises-layout article.block-exercises aside.exercises-layout__kgs-reps {
+  grid-area: exercises-layout__kgs-reps;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 0px;
+}
+section.training-session article.card div#exercises-layout article.block-exercises aside.exercises-layout__kgs-reps div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
+  border: 1px solid #9B9B9B;
+}
+section.training-session article.card div#exercises-layout article.block-exercises aside.exercises-layout__kgs-reps div input {
+  width: 24px;
+  height: 17px;
+  border: 1px solid #D2D2D2;
+  border-radius: 4px;
+  background-color: #FFFFFF;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: #0D0C0B;
+  text-align: center;
+}
+section.training-session article.card div#exercises-layout article.block-exercises aside.exercises-layout__kgs-reps div input:focus {
+  border-color: #7952B3;
+}
+section.training-session article.card div#exercises-layout article.block-exercises aside.exercises-layout__kgs-reps div:first-child {
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
+section.training-session article.card div#exercises-layout article.block-exercises aside.exercises-layout__kgs-reps div:last-child {
+  border-bottom: none;
+  border-left: none;
+  border-right: none;
+}
+section.training-session article.card div#exercises-layout article.block-exercises ul.complete-all-inputs {
+  grid-area: complete-all-inputs;
+  list-style-type: none;
+}
+section.training-session article.card div#exercises-layout article.block-exercises ul.complete-all-inputs li input {
+  width: 24px;
+  height: 17px;
+  border: 1px solid #D2D2D2;
+  border-radius: 4px;
+  background-color: #FFFFFF;
+}
+section.training-session article.card div#exercises-layout article.block-exercises ul.complete-all-inputs li label {
+  font-family: Poppins, system-ui;
+  text-decoration: none;
+  border: none;
+  border-radius: 4px;
+  background-color: #0CCAF1;
+  color: #0D0C0B;
+  font-size: 11px;
+  font-weight: 400;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.25);
+}
+section.training-session article.card div#exercises-layout article.block-exercises ul.complete-all-inputs li label:hover {
+  background-color: #53dbf6;
+}
+section.training-session article.card div#exercises-layout article.block-exercises ul.complete-all-inputs li label:focus {
+  outline: none;
+}
+section.training-session article.card div#exercises-layout article.block-exercises div.RPE {
+  grid-area: RPE;
 }
 
 * {

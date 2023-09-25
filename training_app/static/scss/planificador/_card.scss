@@ -1,5 +1,138 @@
+$areas-card-header:"input arrow text card-header__reps-conf" ;
+$areas-exercises-layout--article:
+"name name"
+"exercises-layout__kgs-reps complete-all-inputs"
+"RPE RPE"
+;
 section.training-session{
     article.card{
-        border: 1px solid black;
+        border: 1px solid nth($grayList, 3);
+        border-radius: 4px;
+        width: 300px;
+        margin-top: 12px;
+        background-color: $white;
+        font-family: Roboto, system-ui;
+        div.card-header{
+            @include grid-area(3fr 0.5fr 3fr 3fr, 1fr, 4px, $areas-card-header);
+            justify-items: flex-start;
+            align-items: center;
+            background-color: nth($grayList, 4);
+            border-bottom: 1px solid nth($grayList, 3);
+            border-radius: 4px 4px 0 0;
+            input{
+                border-radius: 4px;
+                border: 1px solid nth($grayList, 3);
+                &:focus{
+                    border-color: $violet;
+                }
+            }
+            >input{
+                width: 83px;
+                height: 17px;
+                grid-area: input;
+                margin-left: 8px;
+            }
+            >span:first-child{
+                grid-area: arrow;
+                color: $black;
+            }
+            >span:last-child{
+                grid-area: text;
+                color: $black;
+            }
+            div.card-header__reps-conf{
+                @include flex(row, center,space-evenly);
+                grid-area: card-header__reps-conf;
+                width: 100%;
+                a{
+                    font-family: 'Roboto', sans-serif;
+                    font-weight: 400;
+                    font-size: 1rem;
+                    line-height: 1.5rem;
+                    color: $black;
+                    text-decoration: none;
+                }
+                input{
+                    width: 17px;
+                    height: 17px;
+                    border: none;
+                    border-radius: 4px;
+                    background-color: $white-button;
+                    font-family: 'Roboto', sans-serif;
+                    font-weight: 400;
+                    font-size: 14px;
+                    color: $black;
+                    text-align: center;
+                    &:focus{
+                        border-color: $violet;
+                    }
+                }
+            }
+        }
+        div#exercises-layout{
+            article.block-exercises{
+                @include grid-area(3fr 1fr, 1fr 4fr 1fr, 4px, $areas-exercises-layout--article);
+                width: 100%;
+                max-height: 200px;
+                >input{
+                    width: 116px;
+                    height: 21px;
+                    grid-area: name;
+                }
+                aside.exercises-layout__kgs-reps{
+                    grid-area: exercises-layout__kgs-reps;
+                    @include grid(1fr, 1fr 1fr, 0px);
+                    div{
+                        @include flex(row, center, space-evenly);
+                        width: 100%;
+                        border: 1px solid nth($grayList, 1);
+                        input{
+                            width: 24px;
+                            height: 17px;
+                            border:1px solid nth($grayList, 3 );
+                            border-radius: 4px;
+                            background-color: $white-button;
+                            font-family: 'Roboto', sans-serif;
+                            font-weight: 400;
+                            font-size: 14px;
+                            color: $black;
+                            text-align: center;
+                            &:focus{
+                                border-color: $violet;
+                            }
+                        }
+                        &:first-child{
+                            border-top:none;
+                            border-left: none;
+                            border-right: none;
+                        }
+                        &:last-child{
+                            border-bottom:none;
+                            border-left: none;
+                            border-right: none;
+                        }
+                    }
+                }
+                ul.complete-all-inputs{
+                    grid-area: complete-all-inputs;
+                    list-style-type: none;
+                    li{
+                        input{
+                            width: 24px;
+                            height: 17px;
+                            border:1px solid nth($grayList, 3 );
+                            border-radius: 4px;
+                            background-color: $white-button;
+                        }
+                        label{
+                            @include btn($ligth-blue, $black, 4px, 11px, 400)
+                        }
+                    }
+                }
+                div.RPE{
+                    grid-area: RPE;
+                }
+            }
+        }
     }
 }
