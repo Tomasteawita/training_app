@@ -11,7 +11,14 @@ section.training-session{
         height: 100%;
         align-items: center;
         a#add-excersice{
-            @include btn($white-button,$black,4px,14px,500)
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            @include btn($white-button,$black,4px,14px,500);
+            width:136px;
+            height:21px;
+            font-size: 12px;
+            margin: 12px auto;
         }
     }
     article.card{
@@ -50,6 +57,7 @@ section.training-session{
                 height: 17px;
                 grid-area: input;
                 margin-left: 8px;
+                padding: 8px;
             }
             >span:first-child{
                 grid-area: arrow;
@@ -99,6 +107,7 @@ section.training-session{
                     grid-area: name;
                     margin: 12px auto auto 24px;
                     border-radius: 4px;
+                    padding: 8px;
                 }
                 aside.exercises-layout__kgs-reps{
                     grid-area: exercises-layout__kgs-reps;
@@ -168,7 +177,7 @@ section.training-session{
                 div.RPE{
                     grid-area: RPE;
                     @include flex(row, start, space-evenly);
-                    margin: 0px 12px;
+                    margin: 9px 12px;
                     input{
                         width: 21px;
                         height: 21px;

@@ -685,7 +685,7 @@ section.training-session > aside {
   grid-template-columns: 1fr;
   grid-template-rows: none;
   gap: 10px;
-  margin: 24px 12px;
+  margin: 24px auto;
   background-color: #FFFFFF;
   border-radius: 4px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -706,6 +706,9 @@ section.training-session div#training {
   align-items: center;
 }
 section.training-session div#training a#add-excersice {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-family: Poppins, system-ui;
   text-decoration: none;
   border: none;
@@ -717,6 +720,10 @@ section.training-session div#training a#add-excersice {
   cursor: pointer;
   transition: all 0.3s ease-in-out;
   box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.25);
+  width: 136px;
+  height: 21px;
+  font-size: 12px;
+  margin: 12px auto;
 }
 section.training-session div#training a#add-excersice:hover {
   background-color: white;
@@ -765,6 +772,7 @@ section.training-session article.card div.card-header > input {
   height: 17px;
   grid-area: input;
   margin-left: 8px;
+  padding: 8px;
 }
 section.training-session article.card div.card-header > span:first-child {
   grid-area: arrow;
@@ -822,6 +830,7 @@ section.training-session article.card div#exercises-layout article.block-exercis
   grid-area: name;
   margin: 12px auto auto 24px;
   border-radius: 4px;
+  padding: 8px;
 }
 section.training-session article.card div#exercises-layout article.block-exercises aside.exercises-layout__kgs-reps {
   grid-area: exercises-layout__kgs-reps;
@@ -922,7 +931,7 @@ section.training-session article.card div#exercises-layout article.block-exercis
   flex-direction: row;
   align-items: start;
   justify-content: space-evenly;
-  margin: 0px 12px;
+  margin: 9px 12px;
 }
 section.training-session article.card div#exercises-layout article.block-exercises div.RPE input {
   width: 21px;

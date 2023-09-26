@@ -8,7 +8,7 @@ section.training-session{
             }
         }
         @include grid(1fr, none, 10px);
-        margin: 24px 12px;
+        margin: 24px auto;
         background-color: $white-button;
         border-radius:4px ;
         box-shadow: $drop-shadow;
