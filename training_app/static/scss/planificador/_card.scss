@@ -5,13 +5,33 @@ $areas-exercises-layout--article:
 "RPE RPE"
 ;
 section.training-session{
+    div#training{
+        @include grid(1fr, none, 0px);
+        width: 100%;
+        height: 100%;
+        align-items: center;
+        a#add-excersice{
+            @include btn($white-button,$black,4px,14px,500)
+        }
+    }
     article.card{
         border: 1px solid nth($grayList, 3);
         border-radius: 4px;
         width: 300px;
-        margin-top: 12px;
+        height: 277px;
+        margin: 12px auto 12px auto;
         background-color: $white;
         font-family: Roboto, system-ui;
+        input{
+            border: 1px solid nth($grayList, 3);
+            &:focus{
+                border-color: $violet;
+            }
+            &:focus-visible{
+                border-color: $violet;
+            }
+        
+        }
         div.card-header{
             @include grid-area(3fr 0.5fr 3fr 3fr, 1fr, 4px, $areas-card-header);
             justify-items: flex-start;
@@ -21,7 +41,6 @@ section.training-session{
             border-radius: 4px 4px 0 0;
             input{
                 border-radius: 4px;
-                border: 1px solid nth($grayList, 3);
                 &:focus{
                     border-color: $violet;
                 }
@@ -70,22 +89,29 @@ section.training-session{
             }
         }
         div#exercises-layout{
+            height: 100%;
             article.block-exercises{
-                @include grid-area(3fr 1fr, 1fr 4fr 1fr, 4px, $areas-exercises-layout--article);
+                @include grid-area(2fr 1fr, 1fr 2fr 1fr, 4px, $areas-exercises-layout--article);
                 width: 100%;
-                max-height: 200px;
                 >input{
                     width: 116px;
                     height: 21px;
                     grid-area: name;
+                    margin: 12px auto auto 24px;
+                    border-radius: 4px;
                 }
                 aside.exercises-layout__kgs-reps{
                     grid-area: exercises-layout__kgs-reps;
+                    margin-left: 12px;
                     @include grid(1fr, 1fr 1fr, 0px);
                     div{
-                        @include flex(row, center, space-evenly);
+                        @include flex(row, center, flex-start);
                         width: 100%;
                         border: 1px solid nth($grayList, 1);
+                        span{
+                            margin-left: 12px;
+                            width: 32px;
+                        }
                         input{
                             width: 24px;
                             height: 17px;
@@ -97,6 +123,7 @@ section.training-session{
                             font-size: 14px;
                             color: $black;
                             text-align: center;
+                            margin-left: 12px;
                             &:focus{
                                 border-color: $violet;
                             }
@@ -114,9 +141,11 @@ section.training-session{
                     }
                 }
                 ul.complete-all-inputs{
+                    @include flex(column, center, space-around);
                     grid-area: complete-all-inputs;
                     list-style-type: none;
                     li{
+                        @include flex(row, center, space-around);
                         input{
                             width: 24px;
                             height: 17px;
@@ -125,12 +154,33 @@ section.training-session{
                             background-color: $white-button;
                         }
                         label{
-                            @include btn($ligth-blue, $black, 4px, 11px, 400)
+                            display: inline-block;
+                            @include btn($ligth-blue, $black, 4px, 11px, 600);
+                            width: 56px;
+                            height: 15px;
+                            text-align: center;
+                            padding: 4px 2px;
+                            line-height: 7px;
+                            margin: 12px 6px;
                         }
                     }
                 }
                 div.RPE{
                     grid-area: RPE;
+                    @include flex(row, start, space-evenly);
+                    margin: 0px 12px;
+                    input{
+                        width: 21px;
+                        height: 21px;
+                        border-radius: 2px;
+                    }
+                    span{
+                        display: inline-block;
+                        height: 21px;
+                        font-size: 12px;
+                        line-height: 21px;
+                        margin-right: 42px;
+                    }
                 }
             }
         }

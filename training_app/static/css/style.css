@@ -696,13 +696,51 @@ section.training-session > aside > nav div span {
   color: #0CCAF1;
 }
 
+section.training-session div#training {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: none;
+  gap: 0px;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+}
+section.training-session div#training a#add-excersice {
+  font-family: Poppins, system-ui;
+  text-decoration: none;
+  border: none;
+  border-radius: 4px;
+  background-color: #FFFFFF;
+  color: #0D0C0B;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.25);
+}
+section.training-session div#training a#add-excersice:hover {
+  background-color: white;
+}
+section.training-session div#training a#add-excersice:focus {
+  outline: none;
+}
 section.training-session article.card {
   border: 1px solid #D2D2D2;
   border-radius: 4px;
   width: 300px;
-  margin-top: 12px;
+  height: 277px;
+  margin: 12px auto 12px auto;
   background-color: #F9F9F9;
   font-family: Roboto, system-ui;
+}
+section.training-session article.card input {
+  border: 1px solid #D2D2D2;
+}
+section.training-session article.card input:focus {
+  border-color: #7952B3;
+}
+section.training-session article.card input:focus-visible {
+  border-color: #7952B3;
 }
 section.training-session article.card div.card-header {
   display: grid;
@@ -718,7 +756,6 @@ section.training-session article.card div.card-header {
 }
 section.training-session article.card div.card-header input {
   border-radius: 4px;
-  border: 1px solid #D2D2D2;
 }
 section.training-session article.card div.card-header input:focus {
   border-color: #7952B3;
@@ -768,22 +805,27 @@ section.training-session article.card div.card-header div.card-header__reps-conf
 section.training-session article.card div.card-header div.card-header__reps-conf input:focus {
   border-color: #7952B3;
 }
+section.training-session article.card div#exercises-layout {
+  height: 100%;
+}
 section.training-session article.card div#exercises-layout article.block-exercises {
   display: grid;
-  grid-template-columns: 3fr 1fr;
-  grid-template-rows: 1fr 4fr 1fr;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: 1fr 2fr 1fr;
   gap: 4px;
   grid-template-areas: "name name" "exercises-layout__kgs-reps complete-all-inputs" "RPE RPE";
   width: 100%;
-  max-height: 200px;
 }
 section.training-session article.card div#exercises-layout article.block-exercises > input {
   width: 116px;
   height: 21px;
   grid-area: name;
+  margin: 12px auto auto 24px;
+  border-radius: 4px;
 }
 section.training-session article.card div#exercises-layout article.block-exercises aside.exercises-layout__kgs-reps {
   grid-area: exercises-layout__kgs-reps;
+  margin-left: 12px;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr 1fr;
@@ -793,9 +835,13 @@ section.training-session article.card div#exercises-layout article.block-exercis
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: flex-start;
   width: 100%;
   border: 1px solid #9B9B9B;
+}
+section.training-session article.card div#exercises-layout article.block-exercises aside.exercises-layout__kgs-reps div span {
+  margin-left: 12px;
+  width: 32px;
 }
 section.training-session article.card div#exercises-layout article.block-exercises aside.exercises-layout__kgs-reps div input {
   width: 24px;
@@ -808,6 +854,7 @@ section.training-session article.card div#exercises-layout article.block-exercis
   font-size: 14px;
   color: #0D0C0B;
   text-align: center;
+  margin-left: 12px;
 }
 section.training-session article.card div#exercises-layout article.block-exercises aside.exercises-layout__kgs-reps div input:focus {
   border-color: #7952B3;
@@ -823,8 +870,18 @@ section.training-session article.card div#exercises-layout article.block-exercis
   border-right: none;
 }
 section.training-session article.card div#exercises-layout article.block-exercises ul.complete-all-inputs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
   grid-area: complete-all-inputs;
   list-style-type: none;
+}
+section.training-session article.card div#exercises-layout article.block-exercises ul.complete-all-inputs li {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
 }
 section.training-session article.card div#exercises-layout article.block-exercises ul.complete-all-inputs li input {
   width: 24px;
@@ -834,6 +891,7 @@ section.training-session article.card div#exercises-layout article.block-exercis
   background-color: #FFFFFF;
 }
 section.training-session article.card div#exercises-layout article.block-exercises ul.complete-all-inputs li label {
+  display: inline-block;
   font-family: Poppins, system-ui;
   text-decoration: none;
   border: none;
@@ -841,10 +899,16 @@ section.training-session article.card div#exercises-layout article.block-exercis
   background-color: #0CCAF1;
   color: #0D0C0B;
   font-size: 11px;
-  font-weight: 400;
+  font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
   box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.25);
+  width: 56px;
+  height: 15px;
+  text-align: center;
+  padding: 4px 2px;
+  line-height: 7px;
+  margin: 12px 6px;
 }
 section.training-session article.card div#exercises-layout article.block-exercises ul.complete-all-inputs li label:hover {
   background-color: #53dbf6;
@@ -854,6 +918,23 @@ section.training-session article.card div#exercises-layout article.block-exercis
 }
 section.training-session article.card div#exercises-layout article.block-exercises div.RPE {
   grid-area: RPE;
+  display: flex;
+  flex-direction: row;
+  align-items: start;
+  justify-content: space-evenly;
+  margin: 0px 12px;
+}
+section.training-session article.card div#exercises-layout article.block-exercises div.RPE input {
+  width: 21px;
+  height: 21px;
+  border-radius: 2px;
+}
+section.training-session article.card div#exercises-layout article.block-exercises div.RPE span {
+  display: inline-block;
+  height: 21px;
+  font-size: 12px;
+  line-height: 21px;
+  margin-right: 42px;
 }
 
 * {
