@@ -13,6 +13,9 @@
                 <div><a href="{% url 'IndexView' %}">Tablero</a><span> > </span><a href="{% url 'PlanificadorListView' %}">Planificador</a><span> > </span><a href="#">Domingo</a></div>
             </nav>
             <form action="" method="post">
+                {% csrf_token %}
+                <input type="text" id="meta-cant-blocks" name="meta-cant-blocks" value="0">
+                <input type="text" id="meta-cant-excercise" name="meta-cant-excercise" value="0">
                 <div>
                     <label for="ejercicios">Escribe el nombre de un ejercicio:</label>
                     <input type="text" id="ejercicios" list="lista-ejercicios">

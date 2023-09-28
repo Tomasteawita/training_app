@@ -705,7 +705,7 @@ section.training-session div#training {
   height: 100%;
   align-items: center;
 }
-section.training-session div#training a#add-excersice {
+section.training-session div#training span#add-excersice {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -725,10 +725,10 @@ section.training-session div#training a#add-excersice {
   font-size: 12px;
   margin: 12px auto;
 }
-section.training-session div#training a#add-excersice:hover {
+section.training-session div#training span#add-excersice:hover {
   background-color: white;
 }
-section.training-session div#training a#add-excersice:focus {
+section.training-session div#training span#add-excersice:focus {
   outline: none;
 }
 section.training-session article.card {
