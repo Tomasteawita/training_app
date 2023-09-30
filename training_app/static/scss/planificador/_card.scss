@@ -96,7 +96,7 @@ section.training-session{
                 }
             }
         }
-        div#exercises-layout{
+        div.exercises-layout{
             height: 100%;
             article.block-exercises{
                 @include grid-area(2fr 1fr, 1fr 2fr 1fr, 4px, $areas-exercises-layout--article);
