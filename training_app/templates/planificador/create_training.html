@@ -14,29 +14,30 @@
             </nav>
             <form action="" method="post">
                 {% csrf_token %}
-                <input type="text" id="meta-cant-blocks" name="meta-cant-blocks" value="0">
-                <input type="text" id="meta-cant-excercise" name="meta-cant-excercise" value="0">
-                <div>
-                    <label for="ejercicios">Escribe el nombre de un ejercicio:</label>
-                    <input type="text" id="ejercicios" list="lista-ejercicios">
-                    <datalist id="lista-ejercicios">
-                        <option value="Press de Banca">
-                        <option value="Sentadillas">
-                        <option value="Pull-Ups">
-                        <option value="Flexiones">
-                        <option value="Press Militar">
-                        <option value="Peso Muerto">
-                        <option value="Plancha">
-                        <option value="Curl de Bíceps">
-                        <option value="Tríceps en polea">
-                        <option value="Abdominales">
-                        <option value="Burpees">
-                        <option value="Zancadas">
-                    </datalist>
+                <input type="text" id="meta-cant-blocks" name="meta-cant-blocks" value="0" style="display:none;">
+                <input type="text" id="meta-cant-excercise" name="meta-cant-excercise" value="0" style="display:none;">
+                <div class="dropdown">
+                    <label for="tipo">Tipo</label>
+                    <input type="text" id="ejercicios" placeholder="Fuerza">
+                    <div class="options" id="lista-ejercicios">
+                        <div class="option">Press de Banca</div>
+                        <div class="option">Sentadillas</div>
+                        <div class="option">Pull-Ups</div>
+                        <div class="option">Flexiones</div>
+                        <div class="option">Press Militar</div>
+                        <div class="option">Peso Muerto</div>
+                        <div class="option">Plancha</div>
+                        <div class="option">Curl de Bíceps</div>
+                        <div class="option">Tríceps en polea</div>
+                        <div class="option">Abdominales</div>
+                        <div class="option">Burpees</div>
+                        <div class="option">Zancadas</div>
+                    </div>
                 </div>
                 <div id="training">
                     <span id="add-block"><i class="bi bi-plus-lg"></i><span>Agregar bloque</span></span>
                 </div>
+                <button type="submit" class="save">Guardar</button>
             </form>
         </aside>
     </section>
@@ -47,4 +48,5 @@
     <script type="module" src="{% static 'js/TrainingDatalist.js' %}"></script>
     <script type="module" src="{% static 'js/TrainingSession.js' %}"></script>
     <script type="module" src="{% static 'js/TrainingCard.js' %}"></script>
+    <script type="module" src="{% static 'js/dropdown.js' %}"></script>
 {% endblock scripts %}

@@ -10,7 +10,7 @@ section.training-session{
         width: 100%;
         height: 100%;
         align-items: center;
-        span#add-excersice{
+        span.add-excersice{
             display: flex;
             justify-content: center;
             align-items: center;
@@ -20,13 +20,24 @@ section.training-session{
             font-size: 12px;
             margin: 12px auto;
         }
+        span#add-block{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            @include btn($white-button,$black,4px,14px,500);
+            width:136px;
+            height:31px;
+            font-size: 12px;
+            margin: 46px auto;
+        }
+
     }
     article.card{
         border: 1px solid nth($grayList, 3);
         border-radius: 4px;
         width: 300px;
         min-height: 277px;
-        margin: 12px auto 12px auto;
+        margin: 42px auto 12px auto;
         background-color: $white;
         font-family: Roboto, system-ui;
         input{
@@ -101,6 +112,7 @@ section.training-session{
             article.block-exercises{
                 @include grid-area(2fr 1fr, 1fr 2fr 1fr, 4px, $areas-exercises-layout--article);
                 width: 100%;
+                margin: 32px auto;
                 >input{
                     width: 116px;
                     height: 21px;

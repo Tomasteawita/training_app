@@ -1,18 +1,94 @@
 section.training-session{
     >aside{
         >nav{
+            padding: 2px;
             div{
+                font-size: 18px;
+                margin: 20px auto;
+                justify-content: center;
                 span{
                     color: $ligth-blue;
                 }
             }
         }
-        @include grid(1fr, none, 10px);
         margin: 24px auto;
         background-color: $white-button;
         border-radius:4px ;
         box-shadow: $drop-shadow;
         min-height: 300px;
         width: 310px;
+    }
+    form{
+        display: flex;
+        flex-direction: column;
+        font-family: "Montserrat", system-ui;
+        .dropdown {
+            position: relative;
+            display: inline-block;
+            width: 200px; // Ajusta el ancho según tus necesidades
+            
+            label{
+                font-size: 18px;
+                font-weight: 400;
+                color: $black;
+                margin-left: 12px;
+            }
+
+            input#ejercicios {
+                width: 100%;
+                padding: 5px 10px;
+                font-family: "Montserrat", system-ui;
+                margin-left: 12px;
+                border-radius: 6px;
+                margin-top: 8px;
+                &::after:focus{
+                    border-color: $violet;
+                }
+            }
+        }
+        
+        .options {
+            position: absolute;
+            display: none;
+            width: 100%;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            max-height: 150px; // Establece la altura máxima deseada
+            overflow-y: auto;
+            z-index: 1;
+        }
+        
+        .option {
+            padding: 10px;
+            cursor: pointer;
+        }
+        
+        input#ejercicios:focus + .options {
+            display: block;
+        }
+        
+        .option:hover {
+            background-color: #f0f0f0;
+        }
+        
+        .option.selected {
+            background-color: #007bff;
+            color: #fff;
+        }
+        
+        .highlight {
+            font-weight: bold;
+        }
+        
+        .highlight-container {
+            background-color: #f0f0f0;
+        }
+        
+        button.save{
+            @include btn($blue, $white, 4px, 14px, 400);
+            height: 31px;
+            width: 136px;
+            margin: 24px auto;
+        }
     }
 }

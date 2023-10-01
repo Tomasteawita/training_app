@@ -83,20 +83,6 @@ class CreateTrainingView(LoginRequiredMixin, View):
         return render(request, self.template_name)
 
 class SingUpView(CreateView):
-    """
-    Vista para el registro de usuarios.
-
-    Esta vista utiliza el formulario SingUpForm para permitir que los usuarios se registren.
-    Después del registro exitoso, el usuario se inicia sesión automáticamente.
-
-    Atributos:
-        form_class (class): La clase del formulario que se utilizará para el registro.
-        template_name (str): La plantilla HTML que se utilizará para esta vista.
-        success_url (str): La URL a la que se redirigirá después de un registro exitoso.
-
-    Métodos:
-        form_valid(form): Procesa el formulario después de una validación exitosa y realiza la autenticación del usuario.
-    """
     form_class = SingUpForm
     template_name = 'login/singup.html'
     success_url = reverse_lazy('IndexView')
@@ -116,23 +102,7 @@ class SingUpView(CreateView):
         return response
 
 class LoginView(LoginView):
-    """
-    Vista para la autenticación de usuarios.
-
-    Esta vista utiliza la plantilla 'login/login.html' para permitir que los usuarios inicien sesión.
-
-    Atributos:
-        template_name (str): La plantilla HTML que se utilizará para esta vista.
-    """
     template_name = 'login/login.html'
 
 class LogoutView(LogoutView):
-    """
-    Vista para la finalización de la sesión de usuario.
-
-    Esta vista utiliza la plantilla 'login/logout.html' para permitir que los usuarios cierren sesión.
-
-    Atributos:
-        template_name (str): La plantilla HTML que se utilizará para esta vista.
-    """
     template_name = 'login/logout.html'

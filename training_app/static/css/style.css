@@ -681,10 +681,6 @@ main.planificador section.periods article.card-period div.week-layout div.week-c
 }
 
 section.training-session > aside {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: none;
-  gap: 10px;
   margin: 24px auto;
   background-color: #FFFFFF;
   border-radius: 4px;
@@ -692,8 +688,95 @@ section.training-session > aside {
   min-height: 300px;
   width: 310px;
 }
+section.training-session > aside > nav {
+  padding: 2px;
+}
+section.training-session > aside > nav div {
+  font-size: 18px;
+  margin: 20px auto;
+  justify-content: center;
+}
 section.training-session > aside > nav div span {
   color: #0CCAF1;
+}
+section.training-session form {
+  display: flex;
+  flex-direction: column;
+  font-family: "Montserrat", system-ui;
+}
+section.training-session form .dropdown {
+  position: relative;
+  display: inline-block;
+  width: 200px;
+}
+section.training-session form .dropdown label {
+  font-size: 18px;
+  font-weight: 400;
+  color: #0D0C0B;
+  margin-left: 12px;
+}
+section.training-session form .dropdown input#ejercicios {
+  width: 100%;
+  padding: 5px 10px;
+  font-family: "Montserrat", system-ui;
+  margin-left: 12px;
+  border-radius: 6px;
+  margin-top: 8px;
+}
+section.training-session form .dropdown input#ejercicios::after:focus {
+  border-color: #7952B3;
+}
+section.training-session form .options {
+  position: absolute;
+  display: none;
+  width: 100%;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  max-height: 150px;
+  overflow-y: auto;
+  z-index: 1;
+}
+section.training-session form .option {
+  padding: 10px;
+  cursor: pointer;
+}
+section.training-session form input#ejercicios:focus + .options {
+  display: block;
+}
+section.training-session form .option:hover {
+  background-color: #f0f0f0;
+}
+section.training-session form .option.selected {
+  background-color: #007bff;
+  color: #fff;
+}
+section.training-session form .highlight {
+  font-weight: bold;
+}
+section.training-session form .highlight-container {
+  background-color: #f0f0f0;
+}
+section.training-session form button.save {
+  font-family: Poppins, system-ui;
+  text-decoration: none;
+  border: none;
+  border-radius: 4px;
+  background-color: #0C6FFD;
+  color: #F9F9F9;
+  font-size: 14px;
+  font-weight: 400;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.25);
+  height: 31px;
+  width: 136px;
+  margin: 24px auto;
+}
+section.training-session form button.save:hover {
+  background-color: #589cfe;
+}
+section.training-session form button.save:focus {
+  outline: none;
 }
 
 section.training-session div#training {
@@ -705,7 +788,7 @@ section.training-session div#training {
   height: 100%;
   align-items: center;
 }
-section.training-session div#training span#add-excersice {
+section.training-session div#training span.add-excersice {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -725,10 +808,36 @@ section.training-session div#training span#add-excersice {
   font-size: 12px;
   margin: 12px auto;
 }
-section.training-session div#training span#add-excersice:hover {
+section.training-session div#training span.add-excersice:hover {
   background-color: white;
 }
-section.training-session div#training span#add-excersice:focus {
+section.training-session div#training span.add-excersice:focus {
+  outline: none;
+}
+section.training-session div#training span#add-block {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Poppins, system-ui;
+  text-decoration: none;
+  border: none;
+  border-radius: 4px;
+  background-color: #FFFFFF;
+  color: #0D0C0B;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.25);
+  width: 136px;
+  height: 31px;
+  font-size: 12px;
+  margin: 46px auto;
+}
+section.training-session div#training span#add-block:hover {
+  background-color: white;
+}
+section.training-session div#training span#add-block:focus {
   outline: none;
 }
 section.training-session article.card {
@@ -736,7 +845,7 @@ section.training-session article.card {
   border-radius: 4px;
   width: 300px;
   min-height: 277px;
-  margin: 12px auto 12px auto;
+  margin: 42px auto 12px auto;
   background-color: #F9F9F9;
   font-family: Roboto, system-ui;
 }
@@ -823,6 +932,7 @@ section.training-session article.card div.exercises-layout article.block-exercis
   gap: 4px;
   grid-template-areas: "name name" "exercises-layout__kgs-reps complete-all-inputs" "RPE RPE";
   width: 100%;
+  margin: 32px auto;
 }
 section.training-session article.card div.exercises-layout article.block-exercises > input {
   width: 116px;
