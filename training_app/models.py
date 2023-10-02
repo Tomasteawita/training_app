@@ -30,31 +30,37 @@ class PeriodWeekDay(models.Model):
 
 class Blocks(models.Model):
     name = models.CharField(max_length=65)
-    reps = models.IntegerField()
-    rest = models.TimeField()
     
     def __str__(self) -> str:
         return super().__str__()
 
-class DayBlock(models.Model):
-    day = models.ForeignKey(Days, on_delete = models.CASCADE, null = True, blank = True)
+class PerWeeDayBlock(models.Model):
+    period_week_day = models.ForeignKey(PeriodWeekDay, on_delete = models.CASCADE, null = True, blank = True)
     block = models.ForeignKey(Blocks, on_delete = models.CASCADE, null = True, blank = True)
-    
     def __str__(self) -> str:
         return super().__str__()
 
 class Excercise(models.Model):
     name = models.CharField(max_length=65)
-    PE = models.IntegerField()
     
     def __str__(self) -> str:
         return super().__str__()
 
-class BlockExcercise(models.Model):
-    block = models.ForeignKey(Blocks, on_delete = models.CASCADE, null = True, blank = True)
+class PerWeeDayBlockExcercise(models.Model):
+    per_wee_day_block = models.ForeignKey(PerWeeDayBlock, on_delete = models.CASCADE, null = True, blank = True)
     excercise = models.ForeignKey(Excercise, on_delete = models.CASCADE, null = True, blank = True)
-    kg = models.IntegerField()
-    num_reps = models.IntegerField()    
+    reps = models.SmallIntegerField()
+    kgs = models.SmallIntegerField()
+    
+    def __str__(self) -> str:
+        return super().__str__()
+
+class results(models.Model):
+    per_wee_day_block_excercise = models.ForeignKey(PerWeeDayBlockExcercise, on_delete = models.CASCADE, null = True, blank = True)
+    PE = models.BooleanField(default = False)
+    number = models.SmallIntegerField()
+    date = models.DateTimeField()
+    user = models.ForeignKey(User, on_delete = models.CASCADE, null = True, blank = True)
     
     def __str__(self) -> str:
         return super().__str__()

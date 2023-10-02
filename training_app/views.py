@@ -1,9 +1,7 @@
-# Imports de la biblioteca estándar de Python
 from django.urls import reverse, reverse_lazy
 from django.contrib.auth import login
 from django.contrib.auth.decorators import login_required
 
-# Imports de Django
 from django.shortcuts import render
 from django.views.generic import View
 from django.views.generic.edit import (
@@ -12,7 +10,6 @@ from django.views.generic.edit import (
 from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.auth.mixins import LoginRequiredMixin
 
-# Imports locales (propios del proyecto)
 from .forms import *
 from .models import *
 from .planificador import Planificador
@@ -77,10 +74,20 @@ class CreateTrainingView(LoginRequiredMixin, View):
     template_name = 'planificador/create_training.html'
     
     def get(self, request, *args, **kwargs):
-        # planificador = Planificador(request)
-        # period = planificador.read_period_week_day_database(kwargs['pk'])
-        # context = {'period' : period}
+        
         return render(request, self.template_name)
+    
+    def post(self, request, *args, **kwargs):
+        """
+        Procesa una solicitud POST para crear un nuevo planificador.
+        Args:
+            request (HttpRequest): Objeto HttpRequest para acceder a la sesión.
+        """
+        planificador = Planificador(request)
+        planificador.create_period_database()
+        periods = planificador.read_period_week_day_database()
+        context = {'periods' : periods}
+        return render(request, self.template_name, context = context)
 
 class SingUpView(CreateView):
     form_class = SingUpForm
