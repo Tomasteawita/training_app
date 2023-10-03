@@ -4,13 +4,12 @@ import { blockExcercise } from './BlockExcercise.js';
 const addBlock = document.getElementById('add-block');
 const training = document.getElementById('training');
 const metaCantBlocks = document.getElementById('meta-cant-blocks');
-const metaCantExercises = document.getElementById('meta-cant-excercise');
 
 
 function addEventIncrementDecrementValue(idBlock) {
-    const input = document.getElementById(`total-reps-${idBlock}`);
-    const add = document.getElementById(`add-reps-exercise-${idBlock}`);
-    const sub = document.getElementById(`sub-reps-exercise-${idBlock}`);
+    const input = document.getElementById(`${idBlock}_total_reps`);
+    const add = document.getElementById(`${idBlock}_add_reps_block`);
+    const sub = document.getElementById(`${idBlock}_sub_reps_block`);
 
     add.addEventListener('click', () => {
         let currentValue = parseInt(input.value, 10);
@@ -25,28 +24,30 @@ function addEventIncrementDecrementValue(idBlock) {
     });
 }
 
-function manipulateInputs(idBlock, idExercise) {
-    const repsInputId = document.querySelector(`#reps-inputs-${idExercise}`);
-    const kgsInputId = document.querySelector(`#kgs-inputs-${idExercise}`);
-    const add = document.getElementById(`add-reps-exercise-${idBlock}`);
-    const sub = document.getElementById(`sub-reps-exercise-${idBlock}`);
-    let lenghtInputs = document.querySelectorAll(`#reps-inputs-${idExercise} input`).length;
+function manipulateInputs(idBlock) {
+    const idExercise = document.querySelector(`#meta_${idBlock}_cant_excercise`).value;
+    const repsInputId = document.querySelector(`#inputs_${idBlock}_${idExercise}_reps`);
+    const kgsInputId = document.querySelector(`#inputs_${idBlock}_${idExercise}_kgs`);
+    const add = document.getElementById(`${idBlock}_add_reps_block`);
+    const sub = document.getElementById(`${idBlock}_sub_reps_block`);
+    let lenghtInputs = document.querySelectorAll(`#inputs_${idBlock}_${idExercise}_reps input`).length;
     
 
-    function createInput(type, inputId, inputName) {
+    function createInput(type, inputId) {
         const inputElement = document.createElement('input');
         inputElement.type = type;
         inputElement.id = inputId;
-        inputElement.name = inputName;
+        inputElement.name = inputId;
         inputElement.value = 1;
         return inputElement;
     }
 
     add.addEventListener('click', () => {
-        repsInputId.appendChild(createInput('number', `reps_${idExercise}`, `reps_${idExercise}`));
-        kgsInputId.appendChild(createInput('number', `kgs_${idExercise}`, `kgs_${idExercise}`));
         lenghtInputs ++;
-        
+        const inputIdReps = `input_${lenghtInputs}_${idBlock}_${idExercise}_reps`
+        const inputIdKgs = `input_${lenghtInputs}_${idBlock}_${idExercise}_kgs`
+        repsInputId.appendChild(createInput('number', inputIdReps));
+        kgsInputId.appendChild(createInput('number', inputIdKgs));
     });
 
     sub.addEventListener('click', () => {
@@ -64,29 +65,28 @@ function manipulateInputs(idBlock, idExercise) {
 
 function addEventAddExercise() {
     let idBlock = metaCantBlocks.value;
-    const addExercise = document.getElementById(`add-excersice-${idBlock}`);
-    const block = document.getElementById(`exercises-layout-${idBlock}`);
+    const metaCantExercises = document.getElementById(`meta_${idBlock}_cant_excercise`);
+    const addExercise = document.getElementById(`${idBlock}_add_excersice`);
+    const block = document.getElementById(`${idBlock}_exercises_layout`);
     addExercise.addEventListener('click', () => {
         metaCantExercises.value = parseInt(metaCantExercises.value, 10) + 1;
         let idExercise = metaCantExercises.value;
-        const exercise = blockExcercise(idExercise);
+        const exercise = blockExcercise(idBlock, idExercise);
         block.insertBefore(exercise, addExercise);
-        manipulateInputs(idBlock, idExercise);
+        manipulateInputs(idBlock);
     });
 }
 
 addBlock.addEventListener('click', () => {
     metaCantBlocks.value = parseInt(metaCantBlocks.value, 10) + 1;
-    metaCantExercises.value = parseInt(metaCantExercises.value, 10) + 1;
     
     let idBlock = metaCantBlocks.value;
-    let idExercise = metaCantExercises.value;
-    const card = trainingCard(idBlock, idExercise);
+    const card = trainingCard(idBlock);
     
     training.insertBefore(card, addBlock);
     
     addEventIncrementDecrementValue(idBlock);
-    manipulateInputs(idBlock, idExercise);
+    manipulateInputs(idBlock);
     addEventAddExercise();
 });
 

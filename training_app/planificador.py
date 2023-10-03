@@ -37,6 +37,7 @@ class Planificador():
                 Days.objects.create(
                     name = day
                 )
+    
     def create_weeks_database(self):
 
             weeks = ["Semana 1", "Semana 2", "Semana 3", "Semana 4"]
@@ -128,3 +129,46 @@ class Planificador():
                 num_period += 1
 
             return periods_dict
+
+    def create_training(self, training_dict ,pk):
+        period_week_day = PeriodWeekDay.objects.get(pk=pk)
+        
+        for block in training_dict:
+            Blocks.objects.create(
+                name = block
+            )
+            
+            PerWeeDayBlock.objects.create(
+                period_week_day = period_week_day,
+                block = Blocks.objects.last()
+            )
+            
+            for excercise in training_dict[block]:
+                Excercise.objects.create(
+                    name = excercise
+                )
+                
+                for (reps, kgs) in zip(training_dict[block][excercise]['reps'], training_dict[block][excercise]['kgs']):
+                    PerWeeDayBlockExcercise.objects.create(
+                        per_wee_day_block = PerWeeDayBlock.objects.last(),
+                        excercise = Excercise.objects.last(),
+                        reps = reps,
+                        kgs = kgs
+                    )
+    
+    def read_last_training_database(self, pk):
+        period_week_day = PeriodWeekDay.objects.last()
+        per_wee_day_block = PerWeeDayBlock.objects.filter(period_week_day=period_week_day)
+        last_training = {}
+        
+        for block in per_wee_day_block:
+            last_training[block.block.name] = {}
+            per_wee_day_block_excercise = PerWeeDayBlockExcercise.objects.filter(per_wee_day_block=block)
+            
+            for excercise in per_wee_day_block_excercise:
+                last_training[block.block.name][excercise.excercise.name] = {
+                    'reps': excercise.reps,
+                    'kgs': excercise.kgs
+                }
+        
+        return last_training

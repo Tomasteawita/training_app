@@ -1,6 +1,7 @@
 from django.urls import reverse, reverse_lazy
 from django.contrib.auth import login
 from django.contrib.auth.decorators import login_required
+from django.http import HttpResponseRedirect
 
 from django.shortcuts import render
 from django.views.generic import View
@@ -27,7 +28,8 @@ class IndexView(LoginRequiredMixin, View):
     template_name = 'index.html'
     
     def get(self, request, *args, **kwargs):
-    
+        planificador = Planificador(request)
+        # planificador.read_last_training_database()
         return render(request, self.template_name)
 
 class PlanificadorListView(LoginRequiredMixin, View):
@@ -67,14 +69,12 @@ class CreateTrainingView(LoginRequiredMixin, View):
     Esta vista muestra el detalle de un planificador.
     Attributes:
         template_name (str): El nombre de la plantilla HTML a utilizar para renderizar la página.
-
     Method:
         get(self, request): Procesa una solicitud GET para mostrar el detalle de un planificador.
     """
     template_name = 'planificador/create_training.html'
     
     def get(self, request, *args, **kwargs):
-        
         return render(request, self.template_name)
     
     def post(self, request, *args, **kwargs):
@@ -83,12 +83,36 @@ class CreateTrainingView(LoginRequiredMixin, View):
         Args:
             request (HttpRequest): Objeto HttpRequest para acceder a la sesión.
         """
+        cant_blocks = int(request.POST['meta-cant-blocks'])
+        training = {}
+        
+        for id_block in range(1, cant_blocks + 1):
+            current_block = request.POST[f'{id_block}_block_name']     
+            cant_exercises = int(request.POST[f'meta_{id_block}_cant_excercise'])
+            training[current_block] = {}
+            
+            for id_excercise in range(1, cant_exercises + 1):
+                current_excercise = request.POST[f'{id_block}_{id_excercise}_excercise_name']
+                training[current_block][current_excercise] = {
+                    'reps': [],
+                    'kgs': []
+                }
+                
+                inputs = int(request.POST[f'{id_block}_total_reps'])
+                
+                for id_input in range(1, inputs + 1):
+                    reps = request.POST[f'input_{id_input}_{id_block}_{id_excercise}_reps']
+                    kgs = request.POST[f'input_{id_input}_{id_block}_{id_excercise}_kgs']
+                    training[current_block][current_excercise]['reps'].append(reps)
+                    training[current_block][current_excercise]['kgs'].append(kgs)
+        
         planificador = Planificador(request)
-        planificador.create_period_database()
-        periods = planificador.read_period_week_day_database()
-        context = {'periods' : periods}
-        return render(request, self.template_name, context = context)
+        pk = kwargs['pk']
+        planificador.create_training(training, pk)
+        return HttpResponseRedirect(reverse('IndexView'))
 
+
+        
 class SingUpView(CreateView):
     form_class = SingUpForm
     template_name = 'login/singup.html'
