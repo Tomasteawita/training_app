@@ -13,7 +13,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 
 from .forms import *
 from .models import *
-from .planificador import Planificador
+from .training_logic import TrainingLogic
 
 class IndexView(LoginRequiredMixin, View):
     """
@@ -28,38 +28,15 @@ class IndexView(LoginRequiredMixin, View):
     template_name = 'index.html'
     
     def get(self, request, *args, **kwargs):
-        planificador = Planificador(request)
+        # planificador = Planificador(request)
+        avatar = Avatar.objects.get(user = request.user)
+        training_logic = TrainingLogic(request)
+        trainings = training_logic.user_trainings(request.user)
+        context = {
+            'avatar': avatar,
+            'trainings': trainings
+        }
         # planificador.read_last_training_database()
-        return render(request, self.template_name)
-
-class PlanificadorListView(LoginRequiredMixin, View):
-    """
-    Vista basada en clase para la lista de planificadores.
-    Esta vista muestra una lista de planificadores creados por el usuario.
-    Attributes:
-        template_name (str): El nombre de la plantilla HTML a utilizar para renderizar la página.
-
-    Method:
-        get(self, request): Procesa una solicitud GET para mostrar la lista de planificadores.
-    """
-    template_name = 'planificador/period.html'
-    
-    def get(self, request, *args, **kwargs):
-        planificador = Planificador(request)
-        periods = planificador.read_period_week_day_database()
-        context = {'periods' : periods}
-        return render(request, self.template_name, context = context)
-    
-    def post(self, request, *args, **kwargs):
-        """
-        Procesa una solicitud POST para crear un nuevo planificador.
-        Args:
-            request (HttpRequest): Objeto HttpRequest para acceder a la sesión.
-        """
-        planificador = Planificador(request)
-        planificador.create_period_database()
-        periods = planificador.read_period_week_day_database()
-        context = {'periods' : periods}
         return render(request, self.template_name, context = context)
 
 
@@ -106,9 +83,9 @@ class CreateTrainingView(LoginRequiredMixin, View):
                     training[current_block][current_excercise]['reps'].append(reps)
                     training[current_block][current_excercise]['kgs'].append(kgs)
         
-        planificador = Planificador(request)
+        # planificador = Planificador(request)
         pk = kwargs['pk']
-        planificador.create_training(training, pk)
+        # planificador.create_training(training, pk)
         return HttpResponseRedirect(reverse('IndexView'))
 
 

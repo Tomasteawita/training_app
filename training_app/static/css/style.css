@@ -504,16 +504,80 @@ main nav div span {
   margin: 0px 8px;
 }
 
-main.index aside {
+section.user-card {
   display: grid;
   place-content: center;
-  margin: 24px 0px;
+  font-family: "Roboto", system-ui;
 }
-main.index aside a {
+section.user-card article {
+  display: grid;
+  grid-template-columns: 4fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 4px;
+  grid-template-areas: "img-user-info gear" "avatar-info button-proccess";
+  border: 1px solid #CACACA;
+  width: 90%;
+  padding: 16px;
+  height: 124px;
+  border-radius: 4px;
+  margin: 12px auto;
+}
+section.user-card article div:first-child {
+  grid-area: img-user-info;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 6px 0px;
+  grid-template-areas: "img username" "img email";
+}
+section.user-card article div:first-child img {
+  width: 42px;
+  height: 42px;
+  object-fit: cover;
+  border-radius: 50%;
+  grid-area: img;
+}
+section.user-card article div:first-child h2 {
+  font-size: 14px;
+  font-weight: bold;
+  grid-area: username;
+  color: #0D0C0B;
+}
+section.user-card article div:first-child span {
+  font-size: 11px;
+  font-weight: lighter;
+  grid-area: email;
+  color: #9B9B9B;
+}
+section.user-card article a.gear {
+  font-size: 24px;
+  grid-area: gear;
+  color: #9B9B9B;
+  text-align: center;
+  line-height: 12px;
+  margin: 0px 0px 12px auto;
+}
+section.user-card article div.avatar-weight-height {
+  grid-area: avatar-info;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: space-evenly;
+  margin-top: 12px;
+}
+section.user-card article div.avatar-weight-height p {
+  font-size: 12px;
+  font-weight: bold;
+}
+section.user-card article div.avatar-weight-height p span {
+  font-weight: lighter;
+}
+section.user-card article a:last-child {
+  grid-area: button-proccess;
   font-family: Poppins, system-ui;
   text-decoration: none;
   border: none;
-  border-radius: 8px;
+  border-radius: 4px;
   background-color: #FFFFFF;
   color: #0D0C0B;
   font-size: 14px;
@@ -521,30 +585,199 @@ main.index aside a {
   cursor: pointer;
   transition: all 0.3s ease-in-out;
   box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.25);
-  padding: 8px 16px;
+  height: 21px;
+  width: 73px;
+  text-align: center;
+  list-style: 21px;
+  margin-top: 21px;
 }
-main.index aside a:hover {
+section.user-card article a:last-child:hover {
   background-color: white;
 }
-main.index aside a:focus {
+section.user-card article a:last-child:focus {
   outline: none;
 }
 
-.welcom {
-  font-family: Roboto, system-ui;
+section.training-options {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  margin: 32px 0px 0px 0px;
+}
+section.training-options h2 {
+  font-size: 16px;
+  font-weight: 600;
+}
+section.training-options a.add-training {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-family: Poppins, system-ui;
+  text-decoration: none;
+  border: none;
+  border-radius: 4px;
+  background-color: #0CCAF1;
+  color: #0D0C0B;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.25);
+  width: 73px;
+  height: 21px;
+}
+section.training-options a.add-training:hover {
+  background-color: #53dbf6;
+}
+section.training-options a.add-training:focus {
+  outline: none;
+}
+
+section.trainings-layout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  margin: 0px 0px 32px 0px;
+  padding: 24px;
+  gap: 42px;
+}
+section.trainings-layout article {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 2fr 1fr;
+  gap: 4px 8px;
+  border: 1px solid #CACACA;
+  border-radius: 16px;
+  width: 280px;
+  padding: 4px;
+  height: 136px;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  background-color: #F9F9F9;
+}
+section.trainings-layout article div.training-card-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+section.trainings-layout article div.training-card-header h3 {
+  width: 182px;
+  height: 16px;
+  font-size: 12px;
+  font-weight: 600;
+  margin-top: 12px;
+}
+section.trainings-layout article div.training-card-header a {
+  font-family: Poppins, system-ui;
+  text-decoration: none;
+  border: none;
+  border-radius: 8px;
+  background-color: #F1E9FE;
+  color: #473E66;
+  font-size: 18px;
+  font-weight: none;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.25);
+  width: 24px;
+  height: 24px;
   display: grid;
   place-content: center;
-  gap: 24px;
-  text-align: center;
-  margin: 52px 0px;
 }
-.welcom h2 {
-  font-size: 18px;
-  font-weight: bold;
+section.trainings-layout article div.training-card-header a:hover {
+  background-color: white;
 }
-.welcom strong {
-  font-size: 15px;
-  font-weight: medium;
+section.trainings-layout article div.training-card-header a:focus {
+  outline: none;
+}
+section.trainings-layout article div.training-card-body {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  font-size: 11px;
+  line-height: 16px;
+  gap: 64px;
+}
+section.trainings-layout article div.training-card-body p {
+  margin: 4px 18px;
+}
+section.trainings-layout article div.training-card-status-button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+section.trainings-layout article div.training-card-status-button a {
+  display: grid;
+  place-content: center;
+  height: 22px;
+}
+section.trainings-layout article div.training-card-status-button a:not(.training-card-status--not-finish) {
+  width: 74px;
+}
+section.trainings-layout article div.training-card-status-button a.training-card-status--finish {
+  font-family: Poppins, system-ui;
+  text-decoration: none;
+  border: none;
+  border-radius: 4px;
+  background-color: #188755;
+  color: #0D0C0B;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.25);
+  border-radius: 16px;
+}
+section.trainings-layout article div.training-card-status-button a.training-card-status--finish:hover {
+  background-color: #24c87e;
+}
+section.trainings-layout article div.training-card-status-button a.training-card-status--finish:focus {
+  outline: none;
+}
+section.trainings-layout article div.training-card-status-button a.training-card-status--not-finish {
+  font-family: Poppins, system-ui;
+  text-decoration: none;
+  border: none;
+  border-radius: 4px;
+  background-color: #DC3545;
+  color: #0D0C0B;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.25);
+  border-radius: 16px;
+  width: 92px;
+}
+section.trainings-layout article div.training-card-status-button a.training-card-status--not-finish:hover {
+  background-color: #e77681;
+}
+section.trainings-layout article div.training-card-status-button a.training-card-status--not-finish:focus {
+  outline: none;
+}
+section.trainings-layout article div.training-card-status-button a.training-card-button--view {
+  font-family: Poppins, system-ui;
+  text-decoration: none;
+  border: none;
+  border-radius: 4px;
+  background-color: #0C6FFD;
+  color: #0D0C0B;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.25);
+}
+section.trainings-layout article div.training-card-status-button a.training-card-button--view:hover {
+  background-color: #589cfe;
+}
+section.trainings-layout article div.training-card-status-button a.training-card-button--view:focus {
+  outline: none;
 }
 
 main.planificador section.welcom h2 {
@@ -1064,6 +1297,7 @@ section.training-session article.card div.exercises-layout article.block-exercis
 
 body {
   background-color: #F9F9F9;
+  font-family: "Roboto", system-ui;
 }
 
 main {

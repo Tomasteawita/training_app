@@ -4,14 +4,11 @@ from .views import *
 from django.conf.urls.static import static
 
 
-url_planificador = [
-    path('planificador/', PlanificadorListView.as_view(), name = "PlanificadorListView"),
-    path('planificador/<pk>/', CreateTrainingView.as_view(), name = "CreateTrainingView"),
-]
+# app_name = "training_app"
 
 urlpatterns = [
     path('', IndexView.as_view(), name = "IndexView"), 
     path('singup/', SingUpView.as_view(), name = "SingUpView"), 
     path('login/', LoginView.as_view(), name = "LoginView"), 
     path('logout/', LogoutView.as_view(), name = "LogoutView"), 
-] + url_planificador + static(settings.MEDIA_URL,  document_root = settings.MEDIA_ROOT)
+] + static(settings.MEDIA_URL,  document_root = settings.MEDIA_ROOT)

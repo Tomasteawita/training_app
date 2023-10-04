@@ -6,7 +6,9 @@
 @import 'login/login';
 @import 'animations/load_images';
 @import 'utils/navegations';
-@import 'index/welcom';
+@import 'index/user-card';
+@import 'index/training-options';
+@import 'index/trainings-layout';
 @import 'planificador/period';
 @import 'planificador/training-session';
 @import 'planificador/card';
@@ -17,7 +19,8 @@
 }
 
 body{
-    background-color: $white
+    background-color: $white;
+    font-family: 'Roboto', system-ui;
 }
 
 main{

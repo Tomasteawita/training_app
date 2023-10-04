@@ -1,0 +1,67 @@
+section.trainings-layout{
+    @include flex(column, center, space-evenly);
+    margin: 0px 0px 32px 0px;
+    padding: 24px;
+    gap: 42px;
+    article{
+        @include grid(1fr, 1fr 2fr 1fr, 4px 8px );
+        border: 1px solid nth($grayList, 2 );
+        border-radius: 16px;
+        width: 280px;
+        padding: 4px;
+        height: 136px;
+        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+        background-color: $white;
+        div.training-card-header{
+            @include flex(row, center, space-around);
+            h3{
+                width: 182px;
+                height: 16px;
+                font-size: 12px;
+                font-weight: 600;
+                margin-top: 12px
+            }
+            a{
+                @include btn($pink, $dark-violet, 8px, 18px, none);
+                width: 24px;
+                height: 24px;
+                display: grid;
+                place-content: center;
+            }
+
+        }
+        div.training-card-body{
+            @include flex(row, center, space-around);
+            font-size: 11px;
+            line-height: 16px;
+            gap:64px;
+            p{
+                margin: 4px 18px
+            }          
+        }
+        div.training-card-status-button{
+            @include flex(row, center, space-around);
+            a{
+                display: grid;
+                place-content: center;
+                height: 22px;
+                &:not(.training-card-status--not-finish){
+                    width: 74px;
+                }
+            }
+            a.training-card-status--finish{
+                @include btn(nth($statusDefault, 2), $black, 4px, 12px, 500);
+                border-radius: 16px
+            }
+            a.training-card-status--not-finish{
+                @include btn(nth($statusDefault, 1), $black, 4px, 12px, 500);
+                border-radius: 16px;
+                width: 92px
+            }
+            a.training-card-button--view{
+                @include btn($blue, $black, 4px, 12px, 500);
+            }
+
+        }
+    }
+}

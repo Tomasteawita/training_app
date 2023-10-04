@@ -4,14 +4,61 @@
 {% block main %}
 <main class="index">
     <nav>
-        <div><a href="{% url 'IndexView' %}">Tablero</a></div>
+        <div><a href="{% url 'IndexView' %}">Inicio</a></div>
     </nav>
-    <section class="welcom">
-        <h2>Bienvenido, nos alegra mucho tu presencia :D</h2>
-        <strong>Para inicies tu experiencia planificando entrenamientos en la app:</strong>
+    <section class="user-card">
+        <article>
+            <div>
+                {% if avatar %}
+                    <img src="{{ avatar.avatar.url }}" alt="user">
+                {% else %}
+                    <img src="" alt="user">
+                {% endif %}
+                <h2>{{ request.user.username }}</h2>
+                <span>{{ request.user.email }}</span>
+            </div>
+            <a href="#" class="gear"><i class="bi bi-gear"></i></a>
+            <div class="avatar-weight-height">
+                {% if avatar %}
+                    <p>Peso: <span>{{ avatar.weight}}</span><span> Kg</span></p>
+                    <p>Altura: <span>{{ avatar.height }}</span><span> m</span></p>
+                {% else %}
+                    <p>Peso: <span>0</span><span> Kg</span></p>
+                    <p>Altura: <span>0</span><span> m</span></p>    
+                {% endif %}
+            </div>
+            <a href="#">Progreso</a>
+        </article>
     </section>
-    <aside>
-        <a href="{% url 'PlanificadorListView' %}">Click acá</a>
-    </aside>
+    <section class="training-options">
+        <h2>Entrenamientos</h2>
+        <a href="#" class="add-training"><i class="bi bi-plus-lg"></i><span> agregar</span></a>
+    </section>
+    <section class="trainings-layout">
+    {% if trainings %}
+        {% for training in trainings %}
+            <article class="training-card">
+                <div class="training-card-header">
+                    <h3><span>{{ training.day }}</span> <span>{{ training.date|date:"d/m/y" }}</span> - <span>{{ training.name }}</span></h3>
+                    <a href="#"><i class="bi bi-pencil-square"></i></a>
+                </div>
+                <div class="training-card-body">
+                    <p>Nota: <span>Sprint - peso muerto, Aumentarle al PR y si la nota es muy larja pues a la verga no creo que pase de los 256 caracteres</span></p>
+                </div>
+                <div class="training-card-status-button">
+                    {% if training.status %}
+                        <a href="#" class="training-card-status--finish">Realizado</a>
+                    {% else %}
+                        <a href="#" class="training-card-status--not-finish">No realizado</a>
+                    {% endif %}
+                    <a href="#" class="training-card-button--view">Entrenar</a>
+                </div>
+            </article>
+        {% endfor %}
+    {% else %}
+        <h2>No existen entrenamientos</h2>
+    {% endif %}
+    </section>
+    
 </main>
 {% endblock main %}

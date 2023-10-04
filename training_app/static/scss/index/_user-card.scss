@@ -1,0 +1,85 @@
+// main.index{
+//     aside{
+//         @include grid-center();
+//         margin: 24px 0px;
+//         a{
+//             @include btn($white-button,$black,8px,14px,500);
+//             padding: 8px 16px;
+//         }
+//     }
+// }
+$areas-card:
+    "img-user-info gear"
+    "avatar-info button-proccess"
+;
+
+$areas-user-info:
+    "img username"
+    "img email"
+;
+section.user-card{
+    display: grid;
+    place-content: center;
+    font-family: 'Roboto', system-ui;
+    article{
+        @include grid-area(4fr 1fr, 1fr 1fr,4px, $areas-card);
+        border: 1px solid nth($grayList, 2 );
+        width: 90%;
+        padding: 16px;
+        height: 124px;
+        border-radius: 4px;
+        margin: 12px auto;
+        div:first-child{
+            grid-area: img-user-info;
+            @include grid-area(2fr 1fr, 1fr 1fr, 6px 0px, $areas-user-info);
+            img{
+                width: 42px;
+                height: 42px;
+                object-fit: cover;
+                border-radius: 50%;
+                grid-area: img;
+            }
+            h2{
+                font-size: 14px;
+                font-weight: bold;
+                grid-area: username;
+                color: $black;
+            }
+            span{
+                font-size: 11px;
+                font-weight: lighter;
+                grid-area: email;
+                color:nth($grayList, 1 )
+            }
+        }
+        a.gear{
+            font-size: 24px;
+            grid-area: gear;
+            color: nth($grayList , 1 );
+            text-align: center;
+            line-height: 12px;
+            margin: 0px 0px 12px auto;
+        }
+        div.avatar-weight-height{
+            grid-area: avatar-info;
+            @include flex(column,start,space-evenly);
+            margin-top: 12px;
+            p{
+                font-size: 12px;
+                font-weight: bold;
+                span{
+                    font-weight: lighter;
+                }
+            }
+        }
+        a:last-child{
+            grid-area: button-proccess;
+            @include btn($white-button, $black, 4px, 14px, 500);
+            height: 21px;
+            width: 73px;
+            text-align: center;
+            list-style: 21px;
+            margin-top: 21px;
+        }
+    }
+}
