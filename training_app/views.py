@@ -49,7 +49,7 @@ class CreateTrainingView(LoginRequiredMixin, View):
     Method:
         get(self, request): Procesa una solicitud GET para mostrar el detalle de un planificador.
     """
-    template_name = 'planificador/create_training.html'
+    template_name = 'training/create_training.html'
     
     def get(self, request, *args, **kwargs):
         return render(request, self.template_name)

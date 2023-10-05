@@ -5,16 +5,17 @@
 
 <main>
     <nav>
-        <div><a href="{% url 'IndexView' %}">Tablero</a><span> > </span><a href="{% url 'PlanificadorListView' %}">Planificador</a><span> > </span><a href="#">Domingo</a></div>
+        <div><a href="{% url 'IndexView' %}">Inicio</a><span> > </span><a href="#">Crear entrenamiento</a></div>
     </nav>
     <section class="training-session">
         <aside>
-            <nav>
-                <div><a href="{% url 'IndexView' %}">Tablero</a><span> > </span><a href="{% url 'PlanificadorListView' %}">Planificador</a><span> > </span><a href="#">Domingo</a></div>
-            </nav>
             <form action="" method="post">
                 {% csrf_token %}
                 <input type="text" id="meta-cant-blocks" name="meta-cant-blocks" value="0" style="display:none;">
+                <div class="date-input">
+                    <label for="tipo">Fecha</label>
+                    <input type="date" id="date_time" min="2023-10-05" value="2023-10-05">
+                </div>
                 <div class="dropdown">
                     <label for="tipo">Tipo</label>
                     <input type="text" id="ejercicios" placeholder="Fuerza">
@@ -35,6 +36,10 @@
                 </div>
                 <div id="training">
                     <span id="add-block"><i class="bi bi-plus-lg"></i><span>Agregar bloque</span></span>
+                </div>
+                <div class="aditional-notes">
+                    <label for="tipo">Notas adicionales:</label>
+                    <textarea name="notas" id="notas" cols="30" rows="10"></textarea>
                 </div>
                 <button type="submit" class="save">Guardar</button>
             </form>

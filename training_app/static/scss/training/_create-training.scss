@@ -21,7 +21,23 @@ section.training-session{
     form{
         display: flex;
         flex-direction: column;
-        font-family: "Montserrat", system-ui;
+        font-family: "Roboto", system-ui;
+        .date-input{
+            @include flex(column, start, space-evenly);
+            margin: 24px 12px;
+            width: 310px;
+            input{
+                width: 140px;
+                padding: 5px 10px;
+                font-family: "Montserrat", system-ui;
+                border-radius: 6px;
+                margin-top: 8px;
+                &::after:focus{
+                    border-color: $violet;
+                }
+            }
+
+        }
         .dropdown {
             position: relative;
             display: inline-block;
@@ -89,6 +105,23 @@ section.training-session{
             height: 31px;
             width: 136px;
             margin: 24px auto;
+        }
+        div.aditional-notes{
+            margin: 24px auto;
+            max-width: 400px;
+            width: 90%;
+            textarea{
+                width: 100%;
+                height: 100px;
+                padding: 5px 10px;
+                font-family: "Montserrat", system-ui;
+                border-radius: 6px;
+                margin-top: 8px;
+                resize: none;
+                &::after:focus{
+                    border-color: $violet;
+                }
+            }
         }
     }
 }

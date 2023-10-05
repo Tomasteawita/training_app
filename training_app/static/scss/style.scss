@@ -9,9 +9,8 @@
 @import 'index/user-card';
 @import 'index/training-options';
 @import 'index/trainings-layout';
-@import 'planificador/period';
-@import 'planificador/training-session';
-@import 'planificador/card';
+@import 'training/create-training';
+@import 'training/card';
 *{
     margin: 0;
     padding: 0;

@@ -32,7 +32,7 @@
     </section>
     <section class="training-options">
         <h2>Entrenamientos</h2>
-        <a href="#" class="add-training"><i class="bi bi-plus-lg"></i><span> agregar</span></a>
+        <a href="{% url 'CreateTrainingView' %}" class="add-training"><i class="bi bi-plus-lg"></i><span> agregar</span></a>
     </section>
     <section class="trainings-layout">
     {% if trainings %}
