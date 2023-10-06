@@ -1,0 +1,7 @@
+@import './head-training-card';
+@import './training-body';
+
+section.read-training{
+    @include flex(column, center, center);
+    gap: 64px;
+}

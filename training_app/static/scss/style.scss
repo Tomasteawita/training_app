@@ -9,8 +9,9 @@
 @import 'index/user-card';
 @import 'index/training-options';
 @import 'index/trainings-layout';
-@import 'training/create-training';
-@import 'training/card';
+@import 'training/create-training/create-training';
+@import 'training/create-training/card';
+@import 'training/read-training/read-training';
 *{
     margin: 0;
     padding: 0;

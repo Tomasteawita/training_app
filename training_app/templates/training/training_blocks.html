@@ -1,0 +1,28 @@
+<aside class="training-body">
+    {% for block_name, block_data in training.blocks.items %}
+    <article>
+        <div class="block-header">
+            <h2> {{ block_name }}</h2>
+        </div>
+        <div class="block-body">
+            {% for excercise_name, excercise_data in block_data.exercises.items %}
+                <div class="excercise">
+                    <h3> {{ excercise_name }}</h3>
+                    <ul>
+                        <li>
+                            <span>reps</span>
+                            <span>kgs</span>
+                        </li>
+                        {% for excercise in excercise_data %}
+                        <li>
+                            <span>{{ excercise.reps }}</span>-----
+                            <span>{{ excercise.weight_kgs }}</span>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endfor %}
+        </div>
+    </article>
+    {% endfor %}
+</aside>

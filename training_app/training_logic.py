@@ -1,6 +1,6 @@
 from datetime import datetime
 from django.db import transaction
-
+import json
 from .models import *
 
 class TrainingLogic():
@@ -101,18 +101,22 @@ class TrainingLogic():
         Lee un planificador de la base de datos.
         """
         
-        training = Training.objects.get(id = training_id)
-        training_dict = {
-            'id': training.id,
-            'date': training.date,
-            'name': training.name,
-            'notes': training.notes,
-            'status': training.status,
-            'day': training.day,
-            'blocks': {}
+        translate = {
+            'Monday': 'Lunes',
+            'Tuesday': 'Martes',
+            'Wednesday': 'Miércoles',
+            'Thursday': 'Jueves',
+            'Friday': 'Viernes',
+            'Saturday': 'Sábado',
+            'Sunday': 'Domingo'
         }
         
+        training = Training.objects.get(id = training_id)
+        
         training_blocks = TrainingBlocks.objects.filter(training=training)
+        
+        training.day = translate[training.day]
+        
         training_dict = {
             'id': training.id,
             'date': training.date,
@@ -143,9 +147,5 @@ class TrainingLogic():
             
             training_dict['blocks'][block.block.name]['exercises'][block.excercise.name].append(exercise_data)
         
+        return training_dict
         
-        
-        
-        
-        
-        print(training_dict)

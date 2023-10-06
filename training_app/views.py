@@ -34,8 +34,11 @@ class ReadTrainingView(LoginRequiredMixin, View):
     
     def get(self, request, *args, **kwargs):
         training_logic = TrainingLogic(request)
-        training_logic.read_training(kwargs['training_id'])
-        return render(request, self.template_name)
+        training_dict = training_logic.read_training(kwargs['training_id'])
+        context = {
+            'training': training_dict
+        }
+        return render(request, self.template_name, context = context)
 
 class CreateTrainingView(LoginRequiredMixin, View):
     template_name = 'training/create_training.html'

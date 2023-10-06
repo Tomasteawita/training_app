@@ -4,10 +4,11 @@
 {% block main %}
 <main>
     <nav>
-        <div><a href="{% url 'IndexView' %}">Inicio</a><span> > </span><a href="#">Crear entrenamiento</a></div>
+        <div><a href="{% url 'IndexView' %}">Inicio</a><span> > </span><a href="#">Entrenamiento</a></div>
     </nav>
-    <section>
-        A entrenar carajo
+    <section class="read-training">
+        {% include "./training_card.html" %}
+        {% include "./training_blocks.html" %}
     </section>
 
 </main>

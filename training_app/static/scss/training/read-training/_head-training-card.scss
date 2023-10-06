@@ -1,0 +1,43 @@
+section.read-training{
+    article.head-training-card{
+        border: 1px solid nth($grayList, 3);
+        color: $black;
+        width: 90%;
+        max-width: 360px;
+        min-height: 164px;
+        display: flex;
+        flex-direction: column;
+        padding: 18px 16px;
+        justify-content: flex-start;
+        gap: 10px;
+        box-shadow:$drop-shadow;
+        border-radius: 16px;
+        h2{
+            font-size: 18px;
+            margin-bottom: 12px;
+            text-align: center;
+        }
+        h3{
+            font-size: 14px;
+            font-weight: 500;
+        }
+        h4{
+            font-size: 14px;
+            font-weight: 400;
+            span{
+                padding: 2px 12px;
+            }
+            span.not-really{
+                @include btn(nth($statusDefault, 1), $white-button, 16px, 14px, 400);
+            }
+            span.really{
+                @include btn(nth($statusDefault, 2), $white-button, 16px, 14px, 400);
+            }
+        }
+        p{
+            font-size: 12px;
+            line-height: 16px;
+            margin-top: 16px;
+        }
+    }
+}

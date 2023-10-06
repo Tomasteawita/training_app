@@ -1,0 +1,10 @@
+<article class="head-training-card">
+    <h2><span>{{ training.day }}</span> <span>{{ training.date|date:"d/m/y" }}</span></h2>
+    <h3>{{ training.name }}</h3>
+    {% if training.status %}
+        <h4>Estado: <span class="really">Realizado</span></h3>
+    {% else %}
+        <h4>Estado: <span class="not-really">A entrenar</span></h3>
+    {% endif %}
+    <p>Notas: {{training.notes}}</p>
+</article>
