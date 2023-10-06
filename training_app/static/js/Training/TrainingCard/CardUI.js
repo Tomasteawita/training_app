@@ -1,4 +1,4 @@
-export function trainingCard (idBlock) {
+export function CardUI (idBlock) {
     let idExcercise = 1;
     const card = document.createElement('article');
     card.classList.add('card');

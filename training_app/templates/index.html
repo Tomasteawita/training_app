@@ -51,7 +51,7 @@
                     {% else %}
                         <a href="#" class="training-card-status--not-finish">No realizado</a>
                     {% endif %}
-                    <a href="#" class="training-card-button--view">Entrenar</a>
+                    <a href="{% url 'ReadTrainingView' training.id %}" class="training-card-button--view">Entrenar</a>
                 </div>
             </article>
         {% endfor %}

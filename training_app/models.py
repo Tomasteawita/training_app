@@ -8,7 +8,7 @@ class Avatar(models.Model):
     height = models.FloatField(null = True, blank = True)
     
     def __str__(self) -> str:
-        return super().__str__()
+        return f'{self.user} - {self.weight} - {self.height}'
 
 class Training(models.Model):
     name = models.CharField(max_length=65)
@@ -19,21 +19,20 @@ class Training(models.Model):
     notes = models.TextField(null = True, blank = True)
     
     def __str__(self) -> str:
-        return super().__str__()
+        return f'{self.name} - {self.user} - {self.date}'
 
 class Blocks(models.Model):
     name = models.CharField(max_length=65)
-    reps = models.SmallIntegerField()
     
     def __str__(self) -> str:
-        return super().__str__()
+        return f'{self.name}'
 
 
 class Excercise(models.Model):
     name = models.CharField(max_length=65)
     
     def __str__(self) -> str:
-        return super().__str__()
+        return f'{self.name}'
 
 class TrainingBlocks(models.Model):
     training = models.ForeignKey(Training, on_delete = models.CASCADE, null = True, blank = True)
@@ -43,4 +42,4 @@ class TrainingBlocks(models.Model):
     weight = models.FloatField(null = True, blank = True)
     
     def __str__(self) -> str:
-        return super().__str__()
+        return f'{self.training} - {self.block} - {self.excercise} - {self.reps} - {self.weight}'

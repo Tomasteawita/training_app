@@ -14,11 +14,11 @@
                 <input type="text" id="meta-cant-blocks" name="meta-cant-blocks" value="0" style="display:none;">
                 <div class="date-input">
                     <label for="tipo">Fecha</label>
-                    <input type="date" id="date_time" min="2023-10-05" value="2023-10-05">
+                    <input type="date" id="date" name="date" min="2023-10-05" value="2023-10-05">
                 </div>
                 <div class="dropdown">
                     <label for="tipo">Tipo</label>
-                    <input type="text" id="ejercicios" placeholder="Fuerza">
+                    <input type="text" name="tipo" id="ejercicios" placeholder="Fuerza">
                     <div class="options" id="lista-ejercicios">
                         <div class="option">Press de Banca</div>
                         <div class="option">Sentadillas</div>
@@ -38,8 +38,8 @@
                     <span id="add-block"><i class="bi bi-plus-lg"></i><span>Agregar bloque</span></span>
                 </div>
                 <div class="aditional-notes">
-                    <label for="tipo">Notas adicionales:</label>
-                    <textarea name="notas" id="notas" cols="30" rows="10"></textarea>
+                    <label for="notes">Notas adicionales:</label>
+                    <textarea name="notes" id="notes" cols="30" rows="10"></textarea>
                 </div>
                 <button type="submit" class="save">Guardar</button>
             </form>
@@ -49,8 +49,6 @@
 {% endblock main %}
 
 {% block scripts %}
-    <script type="module" src="{% static 'js/TrainingDatalist.js' %}"></script>
-    <script type="module" src="{% static 'js/TrainingSession.js' %}"></script>
-    <script type="module" src="{% static 'js/TrainingCard.js' %}"></script>
-    <script type="module" src="{% static 'js/dropdown.js' %}"></script>
+    <script type="module" src="{% static 'js/Training/TrainingSession.js' %}"></script>
+    <script type="module" src="{% static 'js/Training/dropdown.js' %}"></script>
 {% endblock scripts %}
