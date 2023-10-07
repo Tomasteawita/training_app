@@ -9,6 +9,7 @@
     <section class="read-training">
         {% include "./training_card.html" %}
         {% include "./training_blocks.html" %}
+        <a class="btn-finish-training" href="{% url 'finish_training' training.id %}">Finalizar entrenamiento</a>
     </section>
 
 </main>

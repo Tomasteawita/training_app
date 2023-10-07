@@ -7,6 +7,8 @@ from django.conf.urls.static import static
 url_training_app = [ 
     path('createtraining/', CreateTrainingView.as_view(), name = "CreateTrainingView"), 
     path('readtraining/<int:training_id>/', ReadTrainingView.as_view(), name = "ReadTrainingView"),
+    path('updatetraining/<int:training_id>/', UpdateTrainingView.as_view(), name = "UpdateTrainingView"),
+    path('finish_training/<int:training_id>/', finish_training, name = "finish_training"),
 ]
 
 

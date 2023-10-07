@@ -4,4 +4,8 @@
 section.read-training{
     @include flex(column, center, center);
     gap: 64px;
+    a.btn-finish-training{
+        @include btn($ligth-blue, $black, 4px, 14px, 400);
+        padding: 8px 14px;
+    }
 }

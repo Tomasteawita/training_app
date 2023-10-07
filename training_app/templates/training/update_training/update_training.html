@@ -1,0 +1,20 @@
+{% extends "base/base.html" %}
+{% load static %}
+{% block title %}Modificar entrenamiento{% endblock title %}
+{% block main %}
+<main>
+    <nav>
+        <div><a href="{% url 'IndexView' %}">Inicio</a><span> > </span><a href="#">Modificar entrenamiento</a></div>
+    </nav>
+    <section class="read-training">
+        Modificar entrenamiento
+        {% comment %} {% include "./training_card.html" %}
+        {% include "./training_blocks.html" %} {% endcomment %}
+        {% comment %} <a class="btn-finish-training" href="{% url 'finish_training' training.id %}">Finalizar entrenamiento</a> {% endcomment %}
+    </section>
+
+</main>
+{% endblock main %}
+
+{% block scripts %}
+{% endblock scripts %}

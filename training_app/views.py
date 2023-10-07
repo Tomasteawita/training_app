@@ -30,7 +30,7 @@ class IndexView(LoginRequiredMixin, View):
 
 
 class ReadTrainingView(LoginRequiredMixin, View):
-    template_name = 'training/read_training.html'
+    template_name = 'training/read_training /read_training.html'
     
     def get(self, request, *args, **kwargs):
         training_logic = TrainingLogic(request)
@@ -39,6 +39,18 @@ class ReadTrainingView(LoginRequiredMixin, View):
             'training': training_dict
         }
         return render(request, self.template_name, context = context)
+
+class UpdateTrainingView(LoginRequiredMixin, View):
+    template_name =  'training/update_training/update_training.html'
+    
+    def get(self, request, *args, **kwargs):
+        training_logic = TrainingLogic(request)
+        training_dict = training_logic.update_training(kwargs['training_id'])
+        context = {
+            'training': training_dict
+        }
+        return render(request, self.template_name, context = context)
+
 
 class CreateTrainingView(LoginRequiredMixin, View):
     template_name = 'training/create_training.html'
@@ -70,3 +82,10 @@ class LoginView(LoginView):
 
 class LogoutView(LogoutView):
     template_name = 'login/logout.html'
+    
+
+def finish_training(request, training_id):
+    # training_logic = TrainingLogic(request)
+    # training_logic.finish_training(training_id)
+
+    return HttpResponseRedirect(reverse('IndexView'))
