@@ -1,0 +1,21 @@
+{% for block_name, block_data in training.blocks.items %}
+<article class="card">
+    <div class="card-header">
+        <input type="text" id="{{ forloop.counter }}_block_name" name="{{ forloop.counter }}_block_name" class="form-control" placeholder="Nombre" value="{{ block_name }}">
+        <span>
+            <i class="bi bi-arrow-right"></i>
+        </span>
+        <span>Repeticiones</span>
+        <div class="card-header__reps-conf">
+            <span href="#" id="{{ forloop.counter }}_add_reps_block"><i class="bi bi-plus-lg"></i></span>
+            <input type="text" id="{{ forloop.counter }}_total_reps" name="{{ forloop.counter }}_total_reps" readonly value="{{ block_data.exercises|length }}">
+            <span href="#" id="{{ forloop.counter }}_sub_reps_block"><i class="bi bi-dash-lg"></i></span>
+        </div>
+    </div>
+    <div id="{{ forloop.counter }}_exercises_layout" class="exercises-layout">
+        <input type="text" id="meta_{{ forloop.counter }}_cant_excercise" name="meta_{{ forloop.counter }}_cant_excercise" value="{{ block_data.exercises|length }}" style="display:none;">
+        {% include './excercise_loop.html' with block_counter=forloop.counter %}
+    </div>
+</article>
+{% endfor %}
+

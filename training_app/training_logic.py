@@ -148,24 +148,4 @@ class TrainingLogic():
             training_dict['blocks'][block.block.name]['exercises'][block.excercise.name].append(exercise_data)
         
         return training_dict
-    
-    def update_training(self, training_id):
-        training = self.read_training(training_id)
-        print(training)
-        id_block = 1
-        print("---------------------------------------------------------")
-        print("---------------------------------------------------------")
-        print("---------------------------------------------------------")
-        print("---------------------------------------------------------")
-        
-        new_blocks = []
-        for block_name, block_data in training['blocks'].items():
-            new_block = block_data.copy()
-            new_block['id'] = id_block
-            new_blocks.append(new_block)
-            id_block += 1
-
-        training['blocks'] = new_blocks
-
-        print(training)
                 

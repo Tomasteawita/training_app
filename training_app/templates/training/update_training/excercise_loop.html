@@ -1,0 +1,28 @@
+{% for exercise_name, exercise_data in block_data.exercises.items %}
+    <article class="block-exercises">
+        <input type="text" placeholder="Ejercicio" id="{{ block_counter }}_{{ forloop.counter }}_excercise_name" name="{{ block_counter }}_{{ forloop.counter }}_excercise_name" value="{{ exercise_name }}">
+        <aside class="exercises-layout__kgs-reps">
+            <div id="inputs_{{ block_counter }}_{{ forloop.counter }}_reps">
+                <span>Reps</span>
+                {% for input_data in exercise_data %}
+                    <input type="text" value="{{ input_data.reps }}" id="input_{{ forloop.counter }}_{{ block_counter }}_{{ forloop.parentloop.counter }}_reps" name="input_{{ forloop.counter }}_{{ block_counter }}_{{ forloop.parentloop.counter }}_reps">
+                {% endfor %}                    
+            </div>
+            <div id="inputs_{{ block_counter }}_{{ forloop.counter }}_kgs">
+                <span>Kgs</span>
+                {% for input_data in exercise_data %}
+                    <input type="text" value="{{ input_data.weight_kgs }}" id="input_{{ forloop.counter }}_{{ block_counter }}_{{ forloop.parentloop.counter }}_kgs" name="input_{{ forloop.counter }}_{{ block_counter }}_{{ forloop.parentloop.counter }}_kgs">
+                {% endfor %}
+            </div>
+        </aside>
+        <ul class="complete-all-inputs">
+            <li><input type="text"><label for="" id="apply-reps-all">Todas</label></li>
+            <li><input type="text"><label for="" id="apply-kg-all">Todas</label></li>
+        </ul>
+        <div class="RPE">
+            <input type="checkbox">
+            <span>Anotar percepción del esfuerzo</span>
+        </div>
+    </article>
+    <span id="{{ forloop.parentloop.counter }}_{{ forloop.counter }}_add_excersice" class="add-excersice"><i class="bi bi-plus-lg"></i><span>Agregar ejercicio</span></span>
+{% endfor %}

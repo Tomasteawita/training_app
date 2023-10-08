@@ -45,7 +45,7 @@ class UpdateTrainingView(LoginRequiredMixin, View):
     
     def get(self, request, *args, **kwargs):
         training_logic = TrainingLogic(request)
-        training_dict = training_logic.update_training(kwargs['training_id'])
+        training_dict = training_logic.read_training(kwargs['training_id'])
         context = {
             'training': training_dict
         }

@@ -6,15 +6,49 @@
     <nav>
         <div><a href="{% url 'IndexView' %}">Inicio</a><span> > </span><a href="#">Modificar entrenamiento</a></div>
     </nav>
-    <section class="read-training">
-        Modificar entrenamiento
-        {% comment %} {% include "./training_card.html" %}
-        {% include "./training_blocks.html" %} {% endcomment %}
-        {% comment %} <a class="btn-finish-training" href="{% url 'finish_training' training.id %}">Finalizar entrenamiento</a> {% endcomment %}
+    <section class="training-session">
+        <aside>
+            <form action="" method="post">
+                {% csrf_token %}
+                <input type="text" id="meta-cant-blocks" name="meta-cant-blocks" value="{{training.blocks|length}}" style="display:none;">
+                <div class="date-input">
+                    <label for="tipo">Fecha</label>
+                    <input type="date" id="date" name="date" min="2023-10-05" value="2023-10-05">
+                </div>
+                <div class="dropdown">
+                    <label for="tipo">Tipo</label>
+                    <input type="text" name="tipo" id="ejercicios" placeholder="Fuerza">
+                    <div class="options" id="lista-ejercicios">
+                        <div class="option">Press de Banca</div>
+                        <div class="option">Sentadillas</div>
+                        <div class="option">Pull-Ups</div>
+                        <div class="option">Flexiones</div>
+                        <div class="option">Press Militar</div>
+                        <div class="option">Peso Muerto</div>
+                        <div class="option">Plancha</div>
+                        <div class="option">Curl de Bíceps</div>
+                        <div class="option">Tríceps en polea</div>
+                        <div class="option">Abdominales</div>
+                        <div class="option">Burpees</div>
+                        <div class="option">Zancadas</div>
+                    </div>
+                </div>
+                <div id="training">
+                    {% include "./training.html" %}
+                    <span id="add-block"><i class="bi bi-plus-lg"></i><span>Agregar bloque</span></span>
+                </div>
+                <div class="aditional-notes">
+                    <label for="notes">Notas adicionales:</label>
+                    <textarea name="notes" id="notes" cols="30" rows="10"></textarea>
+                </div>
+                <button type="submit" class="save">Guardar</button>
+            </form>
+        </aside>
     </section>
 
 </main>
 {% endblock main %}
 
 {% block scripts %}
+<script type="module" src="{% static 'js/Training/UpdateTraining.js' %}"></script>
 {% endblock scripts %}
