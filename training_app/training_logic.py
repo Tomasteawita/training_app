@@ -193,4 +193,11 @@ class TrainingLogic():
             training_dict['blocks'][block.block.name]['exercises'][block.excercise.name].append(exercise_data)
         
         return training_dict
-                
+    
+    def finish_training(self, training_id):
+        """
+        Finaliza un planificador en la base de datos.
+        """
+        training = Training.objects.get(id = training_id)
+        training.status = True
+        training.save()

@@ -32,7 +32,7 @@ class IndexView(LoginRequiredMixin, View):
 
 
 class ReadTrainingView(LoginRequiredMixin, View):
-    template_name = 'training/read_training /read_training.html'
+    template_name = 'training/read_training/read_training.html'
     
     def get(self, request, *args, **kwargs):
         training_logic = TrainingLogic(request)
@@ -99,7 +99,7 @@ class LogoutView(LogoutView):
     
 
 def finish_training(request, training_id):
-    # training_logic = TrainingLogic(request)
-    # training_logic.finish_training(training_id)
+    training_logic = TrainingLogic(request)
+    training_logic.finish_training(training_id)
 
     return HttpResponseRedirect(reverse('IndexView'))
