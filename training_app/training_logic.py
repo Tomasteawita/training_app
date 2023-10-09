@@ -95,6 +95,55 @@ class TrainingLogic():
                             weight=kgs
                         )
 
+    def update_training(self, request_post, training_id):
+        """
+        Actualiza un planificador en la base de datos.
+        """
+        cant_blocks = int(request_post['meta-cant-blocks'])
+        training_date = datetime.strptime(request_post['date'], '%Y-%m-%d')
+        day_of_week = training_date.strftime('%A')
+
+        with transaction.atomic():
+            training = Training.objects.get(id=training_id)
+
+            training.date = training_date
+            training.name = request_post['tipo']
+            training.notes = request_post['notes']
+            training.day = day_of_week
+
+            training.save()
+
+            TrainingBlocks.objects.filter(training=training).delete()
+
+            for id_block in range(1, cant_blocks + 1):
+                current_block_name = request_post[f'{id_block}_block_name']
+
+                current_block, _ = Blocks.objects.get_or_create(name=current_block_name)
+
+                cant_exercises = int(request_post[f'meta_{id_block}_cant_excercise'])
+
+                for id_excercise in range(1, cant_exercises + 1):
+                    current_excercise_name = request_post[f'{id_block}_{id_excercise}_excercise_name']
+
+                    current_excercise, _ = Excercise.objects.get_or_create(name=current_excercise_name)
+
+                    inputs = int(request_post[f'{id_block}_total_reps'])
+
+                    for id_input in range(1, inputs + 1):
+                        reps = request_post[f'input_{id_input}_{id_block}_{id_excercise}_reps']
+                        if isinstance(request_post[f'input_{id_input}_{id_block}_{id_excercise}_kgs'], str):
+                            kgs = request_post[f'input_{id_input}_{id_block}_{id_excercise}_kgs'].replace(',', '.')
+                            kgs = float(kgs)
+                        else:
+                            kgs = request_post[f'input_{id_input}_{id_block}_{id_excercise}_kgs']
+
+                        TrainingBlocks.objects.create(
+                            training=training,
+                            block=current_block,
+                            excercise=current_excercise,
+                            reps=reps,
+                            weight=kgs
+                        )
     
     def read_training(self, training_id):
         """
@@ -124,22 +173,18 @@ class TrainingLogic():
             'notes': training.notes,
             'status': training.status,
             'day': training.day,
-            'blocks': {}  # Inicializamos un diccionario vacío para los bloques
+            'blocks': {} 
         }
 
-        # Iteramos a través de los resultados de training_blocks
         for block in training_blocks:
-            # Verificamos si ya existe una clave para este bloque en el diccionario
             if block.block.name not in training_dict['blocks']:
                 training_dict['blocks'][block.block.name] = {
-                    'exercises': {},  # Inicializamos un diccionario para los ejercicios
+                    'exercises': {}, 
                 }
             
-            # Verificamos si ya existe una clave para este ejercicio en el diccionario del bloque
             if block.excercise.name not in training_dict['blocks'][block.block.name]['exercises']:
                 training_dict['blocks'][block.block.name]['exercises'][block.excercise.name] = []
             
-            # Agregamos los datos del par "reps" y "weight_kgs" al ejercicio actual
             exercise_data = {
                 'reps': block.reps,
                 'weight_kgs': block.weight,

@@ -13,11 +13,11 @@
                 <input type="text" id="meta-cant-blocks" name="meta-cant-blocks" value="{{training.blocks|length}}" style="display:none;">
                 <div class="date-input">
                     <label for="tipo">Fecha</label>
-                    <input type="date" id="date" name="date" min="2023-10-05" value="2023-10-05">
+                    <input type="date" id="date" name="date" min="2023-10-05" value="{{training.date}}">
                 </div>
                 <div class="dropdown">
                     <label for="tipo">Tipo</label>
-                    <input type="text" name="tipo" id="ejercicios" placeholder="Fuerza">
+                    <input type="text" name="tipo" id="ejercicios" placeholder="Fuerza" value="{{training.name}}">
                     <div class="options" id="lista-ejercicios">
                         <div class="option">Press de Banca</div>
                         <div class="option">Sentadillas</div>
@@ -39,7 +39,7 @@
                 </div>
                 <div class="aditional-notes">
                     <label for="notes">Notas adicionales:</label>
-                    <textarea name="notes" id="notes" cols="30" rows="10"></textarea>
+                    <textarea name="notes" id="notes" cols="30" rows="10">{{training.notes}}</textarea>
                 </div>
                 <button type="submit" class="save">Guardar</button>
             </form>

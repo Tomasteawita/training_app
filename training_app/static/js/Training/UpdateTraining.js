@@ -1,15 +1,20 @@
 import { addEventIncrementDecrementValue } from './addEventIDValue.js';
-// import { manipulateInputs } from './TrainingInputs.js';
+import { addEventAddExercise } from './TrainingCard/BlockExcecrcise.js';
+import { CardUI } from './TrainingCard/CardUI.js';
+import { manipulateInputs } from './TrainingInputs.js';
 
 const cantBlocks = document.querySelector('#meta-cant-blocks')
+const addBlock = document.getElementById('add-block');
 
-function manipulateInputs(idBlock, idExercise, blockReps) {
+function IncrementDecrementInputs(idBlock, idExercise, blockReps) {
     const repsInputId = document.querySelector(`#inputs_${idBlock}_${idExercise}_reps`);
     const kgsInputId = document.querySelector(`#inputs_${idBlock}_${idExercise}_kgs`);
     const add = document.getElementById(`${idBlock}_add_reps_block`);
     const sub = document.getElementById(`${idBlock}_sub_reps_block`);
-    let lenghtInputs = blockReps.value;
-    
+    console.log("Seleccione los contenedores de los inputs y los botones de incremento y decremento");
+
+    var lenghtInputs = blockReps.value;
+    console.log("La cantidad de inputs es:" + lenghtInputs);
 
     function createInput(type, inputId) {
         const inputElement = document.createElement('input');
@@ -22,6 +27,7 @@ function manipulateInputs(idBlock, idExercise, blockReps) {
 
     add.addEventListener('click', () => {
         lenghtInputs ++;
+        console.log("Incremente -> La cantidad de inputs es:" + lenghtInputs);
         const inputIdReps = `input_${lenghtInputs}_${idBlock}_${idExercise}_reps`
         const inputIdKgs = `input_${lenghtInputs}_${idBlock}_${idExercise}_kgs`
         repsInputId.appendChild(createInput('number', inputIdReps));
@@ -29,11 +35,12 @@ function manipulateInputs(idBlock, idExercise, blockReps) {
     });
 
     sub.addEventListener('click', () => {
-        
+        console.log("Estoy por entrar al if:" + lenghtInputs);
         if (lenghtInputs > 1) {
             repsInputId.removeChild(repsInputId.lastChild);
             kgsInputId.removeChild(kgsInputId.lastChild);
             lenghtInputs --;
+            console.log("Decremento -> La cantidad de inputs es:" + lenghtInputs);
             
         }
     });
@@ -48,6 +55,22 @@ for (let i = 1; i <= cantBlocks.value; i++) {
     blockReps.value = document.querySelectorAll(`#inputs_${i}_${cantExercises}_kgs input`).length;
     addEventIncrementDecrementValue(i);
     for (let j = 1; j <= cantExercises; j++) {
-        manipulateInputs(i, j, blockReps);
+        console.log(i, j, blockReps);
+        IncrementDecrementInputs(i, j, blockReps);
     } 
 }
+
+
+
+addBlock.addEventListener('click', () => {
+    cantBlocks.value = parseInt(cantBlocks.value, 10) + 1;
+    
+    let idBlock = cantBlocks.value;
+    const card = CardUI(idBlock);
+    
+    training.insertBefore(card, addBlock);
+    
+    addEventIncrementDecrementValue(idBlock);
+    manipulateInputs(idBlock);
+    addEventAddExercise(idBlock);
+});

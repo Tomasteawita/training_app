@@ -11,6 +11,8 @@ from django.views.generic.edit import (
 from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.auth.mixins import LoginRequiredMixin
 
+from datetime import datetime
+
 from .forms import *
 from .models import *
 from .training_logic import TrainingLogic
@@ -46,10 +48,22 @@ class UpdateTrainingView(LoginRequiredMixin, View):
     def get(self, request, *args, **kwargs):
         training_logic = TrainingLogic(request)
         training_dict = training_logic.read_training(kwargs['training_id'])
+        
+        if not isinstance(training_dict["date"], datetime):
+            training_dict["date"] = datetime.strptime(training_dict["date"], '%d de %B de %Y a las %H:%M')
+        
+        training_dict["date"] = training_dict["date"].strftime('%Y-%m-%d')
+        
         context = {
             'training': training_dict
         }
         return render(request, self.template_name, context = context)
+    
+    def post(self, request, *args, **kwargs):
+        training_logic = TrainingLogic(request)
+        training_logic.update_training(request.POST, kwargs['training_id'])
+
+        return HttpResponseRedirect(reverse('IndexView'))
 
 
 class CreateTrainingView(LoginRequiredMixin, View):
