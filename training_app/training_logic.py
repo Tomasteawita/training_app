@@ -1,6 +1,5 @@
 from datetime import datetime
 from django.db import transaction
-import json
 from .models import *
 
 class TrainingLogic():
@@ -162,7 +161,7 @@ class TrainingLogic():
         
         training = Training.objects.get(id = training_id)
         
-        training_blocks = TrainingBlocks.objects.filter(training=training)
+        training_blocks = TrainingBlocks.objects.filter(training = training)
         
         training.day = translate[training.day]
         

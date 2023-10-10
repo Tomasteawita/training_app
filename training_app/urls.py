@@ -8,6 +8,7 @@ url_training_app = [
     path('createtraining/', CreateTrainingView.as_view(), name = "CreateTrainingView"), 
     path('readtraining/<int:training_id>/', ReadTrainingView.as_view(), name = "ReadTrainingView"),
     path('updatetraining/<int:training_id>/', UpdateTrainingView.as_view(), name = "UpdateTrainingView"),
+    path('deletetraining/<int:pk>/', DeleteTrainingView.as_view(), name = "DeleteTrainingView"),
     path('finish_training/<int:training_id>/', finish_training, name = "finish_training"),
 ]
 

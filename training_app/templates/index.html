@@ -41,6 +41,7 @@
                 <div class="training-card-header">
                     <h3><span>{{ training.day }}</span> <span>{{ training.date|date:"d/m/y" }}</span> - <span>{{ training.name }}</span></h3>
                     <a href="{% url 'UpdateTrainingView' training.id %}"><i class="bi bi-pencil-square"></i></a>
+                    <a href="{% url 'DeleteTrainingView' training.id %}"><i class="bi bi-trash3-fill"></i></a>
                 </div>
                 <div class="training-card-body">
                     <p>Nota: <span>{{ training.notes }}</span></p>

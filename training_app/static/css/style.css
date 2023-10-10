@@ -1347,6 +1347,63 @@ section.read-training a.btn-finish-training:focus {
   outline: none;
 }
 
+main.delete-training {
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  min-height: 412px;
+}
+main.delete-training article {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  gap: 12px;
+  justify-items: center;
+  align-items: center;
+  border-radius: 12px;
+  background-color: #FFFFFF;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  width: 90%;
+  max-width: 500px;
+  height: 135px;
+}
+main.delete-training article form {
+  display: grid;
+  place-content: center;
+}
+main.delete-training article form p {
+  font-size: 16px;
+  font-weight: 400;
+  color: #0D0C0B;
+  text-align: center;
+}
+main.delete-training article form div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 32px 0px 32px;
+  margin-top: 16px;
+}
+main.delete-training article form div a, main.delete-training article form div input {
+  border-radius: 4px;
+  width: 74px;
+  height: 22px;
+  font-size: 11px;
+}
+main.delete-training article form div a {
+  color: #473E66;
+  border: 1px solid #473E66;
+  background-color: #F1E9FE;
+  text-decoration: none;
+  padding: 4px 14px;
+}
+main.delete-training article form div input {
+  color: #F9F9F9;
+  background-color: #DC3545;
+  border: none;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -1360,6 +1417,7 @@ body {
 
 main {
   min-height: 600px;
+  background-color: #F9F9F9;
 }
 main > nav {
   margin: 72px 0px 32px 0px;

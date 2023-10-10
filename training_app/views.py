@@ -30,7 +30,6 @@ class IndexView(LoginRequiredMixin, View):
         }
         return render(request, self.template_name, context = context)
 
-
 class ReadTrainingView(LoginRequiredMixin, View):
     template_name = 'training/read_training/read_training.html'
     
@@ -65,7 +64,6 @@ class UpdateTrainingView(LoginRequiredMixin, View):
 
         return HttpResponseRedirect(reverse('IndexView'))
 
-
 class CreateTrainingView(LoginRequiredMixin, View):
     template_name = 'training/create_training.html'
     
@@ -78,7 +76,10 @@ class CreateTrainingView(LoginRequiredMixin, View):
 
         return HttpResponseRedirect(reverse('IndexView'))
 
-
+class DeleteTrainingView(LoginRequiredMixin, DeleteView):
+    model = Training
+    template_name = 'training/delete_training.html'
+    success_url = reverse_lazy('IndexView')
         
 class SingUpView(CreateView):
     form_class = SingUpForm

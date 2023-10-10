@@ -12,6 +12,7 @@
 @import 'training/create-training/create-training';
 @import 'training/create-training/card';
 @import 'training/read-training/read-training';
+@import 'training/delete-training/delete-training';
 *{
     margin: 0;
     padding: 0;
@@ -25,6 +26,7 @@ body{
 
 main{
     min-height: 600px;
+    background-color: $white;
     >nav{
         margin: 72px 0px 32px 0px;
     }

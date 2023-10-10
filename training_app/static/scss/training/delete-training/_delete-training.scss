@@ -1,0 +1,48 @@
+main.delete-training{
+    @include grid-center();
+    justify-items: center;
+    min-height: 412px;
+    article{
+        @include grid(1fr, 1fr, 12px);
+        justify-items: center;
+        align-items: center;
+        border-radius: 12px;
+        background-color: $white-button;
+        box-shadow: $drop-shadow;
+        width: 90%;
+        max-width: 500px;
+        height: 135px;
+        form{
+            @include grid-center();
+            p{
+                font-size: 16px;
+                font-weight: 400;
+                color: $black;
+                text-align: center;
+            }
+            div{
+                @include flex(row, center, space-between);
+                padding: 12px 32px 0px 32px;
+                margin-top: 16px;
+                a, input{
+                    border-radius: 4px;
+                    width: 74px;
+                    height: 22px;
+                    font-size: 11px;
+                }
+                a{
+                    color: $dark-violet;
+                    border: 1px solid $dark-violet;
+                    background-color: $pink;
+                    text-decoration: none;
+                    padding: 4px 14px;
+                }
+                input{
+                    color:$white;
+                    background-color: nth($statusDefault,1);
+                    border: none;
+                }
+            }
+        }
+    }
+}
