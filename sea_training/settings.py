@@ -24,9 +24,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = secrets.token_hex(32)
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-#ALLOWED_HOSTS = ['training.tomasteawita.com','www.training.tomasteawita.com', 'localhost', '62.72.24.205']
-ALLOWED_HOSTS = ['*']
+DEBUG = False
+ALLOWED_HOSTS = ['training.tomasteawita.com','www.training.tomasteawita.com', 'localhost', '62.72.24.205']
 CSRF_TRUSTED_ORIGINS = ['https://training.tomasteawita.com']
 
 
@@ -83,7 +82,7 @@ DATABASES = {
         'USER': config('POSTGRES_USER'),
         'PASSWORD': config('POSTGRES_PASSWORD'),
         'HOST': config('POSTGRES_HOST'),
-        'PORT': '5435'  # Asegúrate de que coincida con el puerto del contenedor de PostgreSQL
+        'PORT': config('POSTGRES_PORT')  # Asegúrate de que coincida con el puerto del contenedor de PostgreSQL
     }
 }
 
