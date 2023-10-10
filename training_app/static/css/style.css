@@ -672,6 +672,12 @@ section.trainings-layout article div.training-card-header h3 {
   margin-top: 12px;
 }
 section.trainings-layout article div.training-card-header a {
+  width: 24px;
+  height: 24px;
+  display: grid;
+  place-content: center;
+}
+section.trainings-layout article div.training-card-header a:first-child {
   font-family: Poppins, system-ui;
   text-decoration: none;
   border: none;
@@ -683,15 +689,30 @@ section.trainings-layout article div.training-card-header a {
   cursor: pointer;
   transition: all 0.3s ease-in-out;
   box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.25);
-  width: 24px;
-  height: 24px;
-  display: grid;
-  place-content: center;
 }
-section.trainings-layout article div.training-card-header a:hover {
+section.trainings-layout article div.training-card-header a:first-child:hover {
   background-color: white;
 }
-section.trainings-layout article div.training-card-header a:focus {
+section.trainings-layout article div.training-card-header a:first-child:focus {
+  outline: none;
+}
+section.trainings-layout article div.training-card-header a:last-child {
+  font-family: Poppins, system-ui;
+  text-decoration: none;
+  border: none;
+  border-radius: 8px;
+  background-color: #DC3545;
+  color: #F9F9F9;
+  font-size: 18px;
+  font-weight: none;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.25);
+}
+section.trainings-layout article div.training-card-header a:last-child:hover {
+  background-color: #e77681;
+}
+section.trainings-layout article div.training-card-header a:last-child:focus {
   outline: none;
 }
 section.trainings-layout article div.training-card-body {

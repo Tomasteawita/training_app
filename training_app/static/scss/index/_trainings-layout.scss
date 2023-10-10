@@ -22,11 +22,17 @@ section.trainings-layout{
                 margin-top: 12px
             }
             a{
-                @include btn($pink, $dark-violet, 8px, 18px, none);
                 width: 24px;
                 height: 24px;
                 display: grid;
                 place-content: center;
+                &:first-child{
+                    @include btn($pink, $dark-violet, 8px, 18px, none);                    
+                }
+                &:last-child{
+                    @include btn(nth($statusDefault, 1), $white, 8px, 18px, none);                    
+                }
+                
             }
 
         }
