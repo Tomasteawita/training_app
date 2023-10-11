@@ -25,8 +25,6 @@ SECRET_KEY = secrets.token_hex(32)
 
 DEBUG = config('DEBUG', default=False, cast=bool)
 ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='', cast=Csv())
-
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -80,7 +78,7 @@ DATABASES = {
         'USER': config('POSTGRES_USER'),
         'PASSWORD': config('POSTGRES_PASSWORD'),
         'HOST': config('POSTGRES_HOST'),
-        'PORT': '5435'  # Asegúrate de que coincida con el puerto del contenedor de PostgreSQL
+        'PORT': config('POSTGRES_PORT')  # Asegúrate de que coincida con el puerto del contenedor de PostgreSQL
     }
 }
 
