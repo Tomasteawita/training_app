@@ -35,7 +35,8 @@ section.training-session{
     article.card{
         border: 1px solid nth($grayList, 3);
         border-radius: 4px;
-        width: 300px;
+        width: 95%;
+        max-width: 450px;
         min-height: 277px;
         margin: 42px auto 12px auto;
         background-color: $white;
@@ -149,6 +150,12 @@ section.training-session{
                                 border-color: $violet;
                             }
                         }
+                        input[type="number"]::-webkit-inner-spin-button,
+                            input[type="number"]::-webkit-outer-spin-button {
+                            -webkit-appearance: none;
+                            margin: 0; /* Puedes ajustar este margen si es necesario */
+                            display: none;
+                            }
                         &:first-child{
                             border-top:none;
                             border-left: none;

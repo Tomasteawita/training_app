@@ -15,7 +15,7 @@
                 {% csrf_token %}
                 <p>¿Está seguro de eliminar el entrenamiento {{ training.name }}?</p>
                 <div>
-                    <a href="{% url 'IndexView' %}">Cancelar</a>
+                    <a href="{% url 'DashboardView' %}">Cancelar</a>
                     <input type="submit" value="Eliminar">
                 </div>
             </form>

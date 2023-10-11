@@ -3,9 +3,18 @@ main{
         font-family: Roboto, system-ui;
         font-size: 12px;
         font-weight: 400;
+        @media only screen and (min-width: 768px){
+            font-size: 16px;
+        }
+        
         div{
             @include flex(row,start,start);
             margin: 24px;
+            @media only screen and (min-width: 768px){
+                margin: 32px;
+                height: 64px;
+                align-items: center;
+            }
             a{
                 text-decoration: none;
                 color:$violet;

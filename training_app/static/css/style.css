@@ -40,6 +40,8 @@ header nav > ul li a {
   top: 28%;
   left: 0px;
   transition: all 0.3s;
+  text-decoration: none;
+  color: #F9F9F9;
 }
 header nav > ul li a:hover {
   text-decoration: underline;
@@ -99,6 +101,7 @@ header nav #offcanvas ul li:first-child button {
 }
 header nav #offcanvas ul li a {
   color: #F9F9F9;
+  text-decoration: none;
 }
 header nav #offcanvas ul li a:hover {
   text-decoration: underline;
@@ -486,12 +489,24 @@ main nav {
   font-size: 12px;
   font-weight: 400;
 }
+@media only screen and (min-width: 768px) {
+  main nav {
+    font-size: 16px;
+  }
+}
 main nav div {
   display: flex;
   flex-direction: row;
   align-items: start;
   justify-content: start;
   margin: 24px;
+}
+@media only screen and (min-width: 768px) {
+  main nav div {
+    margin: 32px;
+    height: 64px;
+    align-items: center;
+  }
 }
 main nav div a {
   text-decoration: none;
@@ -801,6 +816,18 @@ section.trainings-layout article div.training-card-status-button a.training-card
 section.trainings-layout article div.training-card-status-button a.training-card-button--view:focus {
   outline: none;
 }
+@media only screen and (min-width: 800px) {
+  section.trainings-layout {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
+@media only screen and (min-width: 1025px) {
+  section.trainings-layout {
+    justify-content: center;
+    gap: 128px;
+  }
+}
 
 section.training-session > aside {
   margin: 24px auto;
@@ -808,7 +835,9 @@ section.training-session > aside {
   border-radius: 4px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   min-height: 300px;
-  width: 310px;
+  width: 95%;
+  min-width: 310px;
+  max-width: 800px;
 }
 section.training-session > aside > nav {
   padding: 2px;
@@ -825,6 +854,33 @@ section.training-session form {
   display: flex;
   flex-direction: column;
   font-family: "Roboto", system-ui;
+}
+@media only screen and (min-width: 800px) {
+  section.training-session form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 150px auto auto auto;
+    gap: 4px;
+    grid-template-areas: "date name" "training training" "notes notes" "button button";
+    gap: 12px;
+    justify-items: center;
+    align-items: center;
+  }
+  section.training-session form .date-input {
+    grid-area: date;
+  }
+  section.training-session form .dropdown {
+    grid-area: name;
+  }
+  section.training-session form #training {
+    grid-area: training;
+  }
+  section.training-session form .aditional-notes {
+    grid-area: notes;
+  }
+  section.training-session form .save {
+    grid-area: button;
+  }
 }
 section.training-session form .date-input {
   display: flex;
@@ -1000,7 +1056,8 @@ section.training-session div#training span#add-block:focus {
 section.training-session article.card {
   border: 1px solid #D2D2D2;
   border-radius: 4px;
-  width: 300px;
+  width: 95%;
+  max-width: 450px;
   min-height: 277px;
   margin: 42px auto 12px auto;
   background-color: #F9F9F9;
@@ -1134,6 +1191,12 @@ section.training-session article.card div.exercises-layout article.block-exercis
 }
 section.training-session article.card div.exercises-layout article.block-exercises aside.exercises-layout__kgs-reps div input:focus {
   border-color: #7952B3;
+}
+section.training-session article.card div.exercises-layout article.block-exercises aside.exercises-layout__kgs-reps div input[type=number]::-webkit-inner-spin-button,
+section.training-session article.card div.exercises-layout article.block-exercises aside.exercises-layout__kgs-reps div input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0; /* Puedes ajustar este margen si es necesario */
+  display: none;
 }
 section.training-session article.card div.exercises-layout article.block-exercises aside.exercises-layout__kgs-reps div:first-child {
   border-top: none;

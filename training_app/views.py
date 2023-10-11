@@ -17,11 +17,22 @@ from .forms import *
 from .models import *
 from .training_logic import TrainingLogic
 
-class IndexView(LoginRequiredMixin, View):
+
+
+class IndexView(View):
     template_name = 'index.html'
     
     def get(self, request, *args, **kwargs):
-        avatar = Avatar.objects.get(user = request.user)
+        return render(request, self.template_name)
+
+class DashboardView(LoginRequiredMixin, View):
+    template_name = 'training/dashboard.html'
+    
+    def get(self, request, *args, **kwargs):
+        try:
+            avatar = Avatar.objects.get(user = request.user)
+        except:
+            avatar = None
         training_logic = TrainingLogic(request)
         trainings = training_logic.user_trainings(request.user)
         context = {
@@ -62,10 +73,10 @@ class UpdateTrainingView(LoginRequiredMixin, View):
         training_logic = TrainingLogic(request)
         training_logic.update_training(request.POST, kwargs['training_id'])
 
-        return HttpResponseRedirect(reverse('IndexView'))
+        return HttpResponseRedirect(reverse('DashboardView'))
 
 class CreateTrainingView(LoginRequiredMixin, View):
-    template_name = 'training/create_training.html'
+    template_name = 'training/create_training/create_training.html'
     
     def get(self, request, *args, **kwargs):
         return render(request, self.template_name)
@@ -74,17 +85,17 @@ class CreateTrainingView(LoginRequiredMixin, View):
         training_logic = TrainingLogic(request)
         training_logic.create_training(request.POST, request.user)
 
-        return HttpResponseRedirect(reverse('IndexView'))
+        return HttpResponseRedirect(reverse('DashboardView'))
 
 class DeleteTrainingView(LoginRequiredMixin, DeleteView):
     model = Training
-    template_name = 'training/delete_training.html'
-    success_url = reverse_lazy('IndexView')
+    template_name = 'training/delete_training/delete_training.html'
+    success_url = reverse_lazy('DashboardView')
         
 class SingUpView(CreateView):
     form_class = SingUpForm
     template_name = 'login/singup.html'
-    success_url = reverse_lazy('IndexView')
+    success_url = reverse_lazy('DashboardView')
 
     def form_valid(self, form):
         response = super().form_valid(form)
@@ -94,6 +105,10 @@ class SingUpView(CreateView):
 
 class LoginView(LoginView):
     template_name = 'login/login.html'
+    
+    # cuando el usuario se loguee, se redirige al dashboard
+    def get_success_url(self):
+        return reverse('DashboardView')
 
 class LogoutView(LogoutView):
     template_name = 'login/logout.html'
@@ -103,4 +118,4 @@ def finish_training(request, training_id):
     training_logic = TrainingLogic(request)
     training_logic.finish_training(training_id)
 
-    return HttpResponseRedirect(reverse('IndexView'))
+    return HttpResponseRedirect(reverse('DashboardView'))

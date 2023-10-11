@@ -5,6 +5,7 @@ from django.conf.urls.static import static
 
 
 url_training_app = [ 
+    path('dashboard/', DashboardView.as_view(), name = "DashboardView"), 
     path('createtraining/', CreateTrainingView.as_view(), name = "CreateTrainingView"), 
     path('readtraining/<int:training_id>/', ReadTrainingView.as_view(), name = "ReadTrainingView"),
     path('updatetraining/<int:training_id>/', UpdateTrainingView.as_view(), name = "UpdateTrainingView"),

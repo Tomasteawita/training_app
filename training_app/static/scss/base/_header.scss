@@ -33,6 +33,8 @@ header {
             top: 28%;
             left: 0px;
             transition: all .3s;
+            text-decoration: none;
+            color: $white;
             &:hover{
               text-decoration: underline;
             }
@@ -89,6 +91,7 @@ header {
             }
             a{
               color: $white;
+              text-decoration: none;
               &:hover{
                 text-decoration: underline;
               }

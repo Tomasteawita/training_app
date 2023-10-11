@@ -5,7 +5,7 @@
 
 <main>
     <nav>
-        <div><a href="{% url 'IndexView' %}">Inicio</a><span> > </span><a href="#">Crear entrenamiento</a></div>
+        <div><a href="{% url 'DashboardView' %}">Inicio</a><span> > </span><a href="#">Crear entrenamiento</a></div>
     </nav>
     <section class="training-session">
         <aside>
@@ -18,20 +18,12 @@
                 </div>
                 <div class="dropdown">
                     <label for="tipo">Tipo</label>
-                    <input type="text" name="tipo" id="ejercicios" placeholder="Fuerza">
+                    <input type="text" name="tipo" id="ejercicios" placeholder="Ej: Fuerza">
                     <div class="options" id="lista-ejercicios">
-                        <div class="option">Press de Banca</div>
-                        <div class="option">Sentadillas</div>
-                        <div class="option">Pull-Ups</div>
-                        <div class="option">Flexiones</div>
-                        <div class="option">Press Militar</div>
-                        <div class="option">Peso Muerto</div>
-                        <div class="option">Plancha</div>
-                        <div class="option">Curl de Bíceps</div>
-                        <div class="option">Tríceps en polea</div>
-                        <div class="option">Abdominales</div>
-                        <div class="option">Burpees</div>
-                        <div class="option">Zancadas</div>
+                        <div class="option">Fuerza</div>
+                        <div class="option">Hipertrofia</div>
+                        <div class="option">Trend inferior</div>
+                        <div class="option">Tren superior</div>
                     </div>
                 </div>
                 <div id="training">

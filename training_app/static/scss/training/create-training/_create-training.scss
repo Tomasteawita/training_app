@@ -1,3 +1,5 @@
+$form-areas: "date name" "training training" "notes notes" "button button";
+
 section.training-session{
     >aside{
         >nav{
@@ -16,12 +18,36 @@ section.training-session{
         border-radius:4px ;
         box-shadow: $drop-shadow;
         min-height: 300px;
-        width: 310px;
+        width: 95%;
+        min-width: 310px;
+        max-width: 800px;
     }
     form{
         display: flex;
         flex-direction: column;
         font-family: "Roboto", system-ui;
+        @media only screen and (min-width:800px){
+            @include grid-area(1fr 1fr, 150px auto auto auto, 4px, $form-areas);
+            gap: 12px;
+            justify-items: center;
+            align-items: center;
+            .date-input{
+                grid-area: date
+            }
+            .dropdown{
+                grid-area: name
+            }
+            #training{
+                grid-area: training
+            }
+            .aditional-notes{
+                grid-area: notes
+            }
+            .save{
+                grid-area: button
+            }
+
+        }
         .date-input{
             @include flex(column, start, space-evenly);
             margin: 24px 12px;
