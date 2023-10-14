@@ -1,8 +1,39 @@
 {% extends 'base/base.html' %}
 {% load static %}
-{% block title %}Sea training{% endblock title %}
+{% block title %}training.tomasteawita{% endblock title %}
 {% block main %}
 <main class="index">
-    <h1>Bienvenido a la aplciación de entrenamiento</h1>
+    <h1>training.tomasteawita</h1>
+    <section class="problem-solving">
+        <p>Planificar tus entrenamientos es importante para mejorar eficientemente tu físico.</p>
+        <p>Si los formatos de documentos que existen hoy en día no te convencen para monitorear tu progreso.</p>
+        <p>Esta es una oportunidad para mejorar tu experiencia organizando la forma en la que entrenás.</p>
+    </section>
+    <section class="CTA">
+        <div>
+            <a href="#">Registrarse</a>
+            <a href="#">Iniciar sesión</a>
+        </div>
+        <p>Prueba la versión beta y explora una experiencia innovadora para la organización de tus entrenamientos</p>
+    </section>
+    <section class="explication">
+        <img src="{% static 'images/AndroidPhone.png'%}" alt="training.tomasteawita">
+        <div>
+            <h2>¿Qué es training.tomasteawaita?</h2>
+            <div>
+                <p>Es una aplicación web diseñada para llevar un registro del entrenamiento de fuerza.</p>
+                <p>Los objetivos de la aplicación son:</p>
+                <ul>
+                    <li>Establecer un formato para planificar el entrenamiento, sin preocuparse por el diseño adicional que habría que pensar en el momento de usar hojas de calculo u otros documentos que no fueron pensados para este fin.</li>
+                    <li>Fomentar la planificación del entrenamiento </li>
+                    <li>Cuantificar los resultados a través del registro del entrenamiento a lo largo de los meses.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <section class="consults">
+        <h2>Para consultas acerca del funcionamiento, errores o recomendaciones, ir al apartado de <a href="#contact">contacto</a> al final de esta página.</h2>
+        <i class="bi bi-arrow-down"></i>
+    </section>
 </main>
 {% endblock main %}

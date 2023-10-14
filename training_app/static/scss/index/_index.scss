@@ -1,0 +1,25 @@
+@import './problem-solving';
+@import './CTA';
+@import './explication';
+@import './consults';
+
+main.index{
+    margin-top: 81px;
+    h1{
+        font-size: 24px;
+        font-weight: 900;
+        margin-bottom: 16px;
+        text-align: center;
+
+    }
+    h1,h2{
+        font-family: 'Poppins', sans-serif;
+        color: $black;
+    }
+    section{
+        margin: 32px auto;
+        p{
+            font-family: 'montserrat', sans-serif;
+        }
+    }
+}

@@ -1,0 +1,35 @@
+main.index{
+    section.explication{
+        @include flex(column, center, center);
+        >div{
+            @include flex(column, center, center);
+            h2{
+                text-align: center;
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 900;
+                line-height: normal;
+            }
+            >div{
+                p{
+                    font-size: 12px;
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: normal;
+                    margin: 12px 16px;
+                }
+                ul{
+                    list-style-type: disc;
+                    margin: 12px 38px;
+                    li{
+                        font-size: 12px;
+                        margin: 12px 0px 12px 0px;
+                        font-style: normal;
+                        font-weight: 400;
+                        line-height: normal;
+                    }
+                }
+            }
+        }
+    }
+}

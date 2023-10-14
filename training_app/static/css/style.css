@@ -242,7 +242,7 @@ main.login form {
   padding: 12px 0 16px 0;
 }
 main.login form strong {
-  color: #0D0C0B;
+  color: #4E4E4E;
   font-size: 16px;
   font-style: normal;
   font-weight: 600;
@@ -557,7 +557,7 @@ section.user-card article div:first-child h2 {
   font-size: 14px;
   font-weight: bold;
   grid-area: username;
-  color: #0D0C0B;
+  color: #4E4E4E;
 }
 section.user-card article div:first-child span {
   font-size: 11px;
@@ -595,7 +595,7 @@ section.user-card article a:last-child {
   border: none;
   border-radius: 4px;
   background-color: #FFFFFF;
-  color: #0D0C0B;
+  color: #4E4E4E;
   font-size: 14px;
   font-weight: 500;
   cursor: pointer;
@@ -635,7 +635,7 @@ section.training-options a.add-training {
   border: none;
   border-radius: 4px;
   background-color: #0CCAF1;
-  color: #0D0C0B;
+  color: #4E4E4E;
   font-size: 12px;
   font-weight: 500;
   cursor: pointer;
@@ -762,7 +762,7 @@ section.trainings-layout article div.training-card-status-button a.training-card
   border: none;
   border-radius: 4px;
   background-color: #188755;
-  color: #0D0C0B;
+  color: #4E4E4E;
   font-size: 12px;
   font-weight: 500;
   cursor: pointer;
@@ -782,7 +782,7 @@ section.trainings-layout article div.training-card-status-button a.training-card
   border: none;
   border-radius: 4px;
   background-color: #DC3545;
-  color: #0D0C0B;
+  color: #4E4E4E;
   font-size: 12px;
   font-weight: 500;
   cursor: pointer;
@@ -803,7 +803,7 @@ section.trainings-layout article div.training-card-status-button a.training-card
   border: none;
   border-radius: 4px;
   background-color: #0C6FFD;
-  color: #0D0C0B;
+  color: #4E4E4E;
   font-size: 12px;
   font-weight: 500;
   cursor: pointer;
@@ -908,7 +908,7 @@ section.training-session form .dropdown {
 section.training-session form .dropdown label {
   font-size: 18px;
   font-weight: 400;
-  color: #0D0C0B;
+  color: #4E4E4E;
   margin-left: 12px;
 }
 section.training-session form .dropdown input#ejercicios {
@@ -1010,7 +1010,7 @@ section.training-session div#training span.add-excersice {
   border: none;
   border-radius: 4px;
   background-color: #FFFFFF;
-  color: #0D0C0B;
+  color: #4E4E4E;
   font-size: 14px;
   font-weight: 500;
   cursor: pointer;
@@ -1036,7 +1036,7 @@ section.training-session div#training span#add-block {
   border: none;
   border-radius: 4px;
   background-color: #FFFFFF;
-  color: #0D0C0B;
+  color: #4E4E4E;
   font-size: 14px;
   font-weight: 500;
   cursor: pointer;
@@ -1099,11 +1099,11 @@ section.training-session article.card div.card-header > input {
 }
 section.training-session article.card div.card-header > span:first-child {
   grid-area: arrow;
-  color: #0D0C0B;
+  color: #4E4E4E;
 }
 section.training-session article.card div.card-header > span:last-child {
   grid-area: text;
-  color: #0D0C0B;
+  color: #4E4E4E;
 }
 section.training-session article.card div.card-header div.card-header__reps-conf {
   display: flex;
@@ -1118,7 +1118,7 @@ section.training-session article.card div.card-header div.card-header__reps-conf
   font-weight: 400;
   font-size: 1rem;
   line-height: 1.5rem;
-  color: #0D0C0B;
+  color: #4E4E4E;
   text-decoration: none;
 }
 section.training-session article.card div.card-header div.card-header__reps-conf input {
@@ -1130,7 +1130,7 @@ section.training-session article.card div.card-header div.card-header__reps-conf
   font-family: "Roboto", sans-serif;
   font-weight: 400;
   font-size: 14px;
-  color: #0D0C0B;
+  color: #4E4E4E;
   text-align: center;
 }
 section.training-session article.card div.card-header div.card-header__reps-conf input:focus {
@@ -1185,7 +1185,7 @@ section.training-session article.card div.exercises-layout article.block-exercis
   font-family: "Roboto", sans-serif;
   font-weight: 400;
   font-size: 14px;
-  color: #0D0C0B;
+  color: #4E4E4E;
   text-align: center;
   margin-left: 12px;
 }
@@ -1236,7 +1236,7 @@ section.training-session article.card div.exercises-layout article.block-exercis
   border: none;
   border-radius: 4px;
   background-color: #0CCAF1;
-  color: #0D0C0B;
+  color: #4E4E4E;
   font-size: 11px;
   font-weight: 600;
   cursor: pointer;
@@ -1278,7 +1278,7 @@ section.training-session article.card div.exercises-layout article.block-exercis
 
 section.read-training article.head-training-card {
   border: 1px solid #D2D2D2;
-  color: #0D0C0B;
+  color: #4E4E4E;
   width: 90%;
   max-width: 360px;
   min-height: 164px;
@@ -1416,7 +1416,7 @@ section.read-training a.btn-finish-training {
   border: none;
   border-radius: 4px;
   background-color: #0CCAF1;
-  color: #0D0C0B;
+  color: #4E4E4E;
   font-size: 14px;
   font-weight: 400;
   cursor: pointer;
@@ -1458,7 +1458,7 @@ main.delete-training article form {
 main.delete-training article form p {
   font-size: 16px;
   font-weight: 400;
-  color: #0D0C0B;
+  color: #4E4E4E;
   text-align: center;
 }
 main.delete-training article form div {
@@ -1486,6 +1486,157 @@ main.delete-training article form div input {
   color: #F9F9F9;
   background-color: #DC3545;
   border: none;
+}
+
+section.problem-solving {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: start;
+}
+section.problem-solving p {
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: normal;
+  margin: 12px;
+}
+section.problem-solving p:first-child, section.problem-solving p:last-child {
+  background: linear-gradient(180deg, #4E4E4E 0%, #7952B3 85.19%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+section.problem-solving p:nth-child(2) {
+  background: linear-gradient(180deg, #7952B3 48.21%, #4E4E4E 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+main.index section.CTA div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  height: 86px;
+  margin: 32px auto 24px auto;
+}
+main.index section.CTA div a {
+  font-family: Poppins, system-ui;
+  text-decoration: none;
+  border: none;
+  border-radius: 4px;
+  background-color: #F1E9FE;
+  color: #4E4E4E;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.25);
+  text-align: center;
+  width: 166px;
+  height: 32px;
+  text-align: center;
+  padding: 8px;
+}
+main.index section.CTA div a:hover {
+  background-color: white;
+}
+main.index section.CTA div a:focus {
+  outline: none;
+}
+main.index section.CTA p {
+  text-align: center;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  width: 259px;
+  margin: 28px auto;
+}
+
+main.index section.explication {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+main.index section.explication > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+main.index section.explication > div h2 {
+  text-align: center;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: normal;
+}
+main.index section.explication > div > div p {
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin: 12px 16px;
+}
+main.index section.explication > div > div ul {
+  list-style-type: disc;
+  margin: 12px 38px;
+}
+main.index section.explication > div > div ul li {
+  font-size: 12px;
+  margin: 12px 0px 12px 0px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+main.index section.consults {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+main.index section.consults h2 {
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  padding: 0px 12px;
+}
+main.index section.consults h2 a {
+  color: #473E66;
+}
+main.index section.consults h2 a:hover {
+  color: #7952B3;
+}
+main.index section.consults i {
+  font-size: 32px;
+  margin: 24px auto;
+}
+
+main.index {
+  margin-top: 81px;
+}
+main.index h1 {
+  font-size: 24px;
+  font-weight: 900;
+  margin-bottom: 16px;
+  text-align: center;
+}
+main.index h1, main.index h2 {
+  font-family: "Poppins", sans-serif;
+  color: #4E4E4E;
+}
+main.index section {
+  margin: 32px auto;
+}
+main.index section p {
+  font-family: "montserrat", sans-serif;
 }
 
 * {

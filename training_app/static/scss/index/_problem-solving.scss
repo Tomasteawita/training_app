@@ -1,0 +1,23 @@
+section.problem-solving{
+    @include flex(column, center, center);
+    text-align: start;
+    p{
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 900;
+        line-height: normal;
+        margin: 12px;
+        &:first-child, &:last-child{
+            background: linear-gradient(180deg, #4E4E4E 0%, #7952B3 85.19%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        &:nth-child(2){
+            background: linear-gradient(180deg, #7952B3 48.21%, #4E4E4E 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    }
+}

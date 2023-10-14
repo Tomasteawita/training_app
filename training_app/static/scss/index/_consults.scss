@@ -1,0 +1,22 @@
+main.index{
+    section.consults{
+        @include flex(column, center, center);
+        h2{
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+            padding: 0px 12px;
+            a{
+                color: $dark-violet;
+                &:hover{
+                    color: $violet;
+                }
+            }
+        }
+        i{
+            font-size: 32px;
+            margin: 24px auto;
+        }
+    }
+}
