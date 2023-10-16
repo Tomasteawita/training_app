@@ -1,5 +1,6 @@
 main.index{
     section.explication{
+        margin-top: 128px;
         @include flex(column, center, center);
         >div{
             @include flex(column, center, center);
@@ -12,7 +13,7 @@ main.index{
             }
             >div{
                 p{
-                    font-size: 12px;
+                    font-size: 15px;
                     font-style: normal;
                     font-weight: 400;
                     line-height: normal;
@@ -22,11 +23,35 @@ main.index{
                     list-style-type: disc;
                     margin: 12px 38px;
                     li{
-                        font-size: 12px;
+                        font-size: 13px;
                         margin: 12px 0px 12px 0px;
                         font-style: normal;
                         font-weight: 400;
                         line-height: normal;
+                    }
+                }
+            }
+        }
+        @media only screen and (min-width:830px){
+            @include grid(1fr 2fr, 1fr, 12px);
+            align-items: flex-start;
+            justify-items: center;
+            img{
+                width: 256px;
+            }
+            >div{
+                gap: 21px;
+                h2{
+                    font-size: 24px;
+                }
+                >div{
+                    p{
+                        font-size: 18px;
+                    }
+                    ul{
+                        li{
+                            font-size: 17px;
+                        }
                     }
                 }
             }

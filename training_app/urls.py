@@ -19,4 +19,5 @@ urlpatterns = [
     path('singup/', SingUpView.as_view(), name = "SingUpView"), 
     path('login/', LoginView.as_view(), name = "LoginView"), 
     path('logout/', LogoutView.as_view(), name = "LogoutView"), 
+    path('access/', AccessView.as_view(), name = "AccessView"),
 ] + url_training_app + static(settings.MEDIA_URL,  document_root = settings.MEDIA_ROOT)

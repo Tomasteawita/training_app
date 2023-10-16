@@ -1,0 +1,50 @@
+$min-width: 800px;
+$max-width: 1024px;
+$min-width-desktop: 1024px;
+
+form.access-card {
+    @include flex(column, center, center);
+    width: 90%;
+    max-width: 600px;
+    min-width: 300px;
+    margin: 24px auto;
+    border-radius: 8px;
+    background-color: transparent;
+    border: 1px solid nth($grayList, 3);
+    strong{
+        margin: 12px auto;
+    }
+    ul{
+        list-style: none;
+        width: 90%;
+        li{
+            margin: 8px auto;
+            label{
+                display: block;
+            }
+            input{
+                margin-top: 12px;
+                border-radius: 12px;
+                border: .5px solid nth($grayList, 3);
+                padding: 4px 8px;
+                height: 24px;
+                min-width: 256px;
+            }
+        }
+    }
+    button{
+        margin: 24px auto;
+        border-radius: 12px;
+        border: none;
+        padding: 4px 8px;
+        height: 32px;
+        min-width: 256px;
+        background-color: $blue;
+        color: $white;
+        font-weight: 600;
+        font-size: 16px;
+        &:hover{
+            background-color: $dark-violet;
+        }
+    }
+}

@@ -25,6 +25,17 @@ class IndexView(View):
     def get(self, request, *args, **kwargs):
         return render(request, self.template_name)
 
+class AccessView(CreateView):
+    form_class = SingUpForm
+    template_name = 'login/access.html'
+    success_url = reverse_lazy('DashboardView')
+
+    def form_valid(self, form):
+        response = super().form_valid(form)
+        login(self.request, self.object)
+        
+        return response
+
 class DashboardView(LoginRequiredMixin, View):
     template_name = 'training/dashboard.html'
     

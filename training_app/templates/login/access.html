@@ -1,0 +1,35 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block title %}Obtener acceso{% endblock title %}
+{% block main %}
+<main class="access">
+    <nav>
+        <div><a href="{% url 'IndexView' %}">Inicio</a><span> > </span><a href="{% url 'AccessView' %}">Obtener acceso</a></div>
+    </nav>
+    <section class="description-access">
+        <h1>Obtener acceso</h1>
+        <div>
+            <p>
+                Pocas personas van a tener acceso a esta versión beta.
+            </p>
+            <p>
+                Si querés ser una de ellas registrate en el siguiente formulario.
+            </p>
+            <p>
+                Cuando pulses en “Registrase”, te envieré un email de agradecimiento y una invitación a una entrevista para conocer tu opinion acerca de la aplicación (puedes rechazar la invitación sin ningun  problema):
+            </p>
+        </div>
+    </section>
+    <section class="login-section">
+        <form method="post" class="access-card"> {% csrf_token %}
+            <strong>Registrarse</strong>
+            <ul>
+                {{form.as_ul}}
+            </ul>
+            <button type="submit"> 
+                Registrarse
+            </button>
+        </form>
+    </section>
+</main>
+{% endblock main %}

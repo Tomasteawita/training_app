@@ -210,6 +210,80 @@ footer a:hover {
   text-decoration: underline;
 }
 
+main.access {
+  margin-top: 92px;
+}
+main.access section.description-access h1 {
+  color: #4E4E4E;
+  font-family: "Poppins", sans-serif;
+  font-size: 21px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: normal;
+  text-align: center;
+}
+main.access section.description-access p {
+  font-size: 16px;
+  margin: 21px 16px;
+  font-weight: 600;
+  color: #4E4E4E;
+}
+main.access section.login-section {
+  display: grid;
+  place-content: center;
+  margin: 0px;
+}
+
+form.access-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 90%;
+  max-width: 600px;
+  min-width: 300px;
+  margin: 24px auto;
+  border-radius: 8px;
+  background-color: transparent;
+  border: 1px solid #D2D2D2;
+}
+form.access-card strong {
+  margin: 12px auto;
+}
+form.access-card ul {
+  list-style: none;
+  width: 90%;
+}
+form.access-card ul li {
+  margin: 8px auto;
+}
+form.access-card ul li label {
+  display: block;
+}
+form.access-card ul li input {
+  margin-top: 12px;
+  border-radius: 12px;
+  border: 0.5px solid #D2D2D2;
+  padding: 4px 8px;
+  height: 24px;
+  min-width: 256px;
+}
+form.access-card button {
+  margin: 24px auto;
+  border-radius: 12px;
+  border: none;
+  padding: 4px 8px;
+  height: 32px;
+  min-width: 256px;
+  background-color: #0C6FFD;
+  color: #F9F9F9;
+  font-weight: 600;
+  font-size: 16px;
+}
+form.access-card button:hover {
+  background-color: #473E66;
+}
+
 main.login {
   height: 100vh;
   display: grid;
@@ -1514,6 +1588,12 @@ section.problem-solving p:nth-child(2) {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+@media only screen and (min-width: 830px) {
+  section.problem-solving p {
+    font-size: 24px;
+    margin: 32px 256px;
+  }
+}
 
 main.index section.CTA div {
   display: flex;
@@ -1522,6 +1602,12 @@ main.index section.CTA div {
   justify-content: space-around;
   height: 86px;
   margin: 32px auto 24px auto;
+}
+@media only screen and (min-width: 830px) {
+  main.index section.CTA div {
+    flex-direction: row;
+    justify-content: center;
+  }
 }
 main.index section.CTA div a {
   font-family: Poppins, system-ui;
@@ -1547,6 +1633,11 @@ main.index section.CTA div a:hover {
 main.index section.CTA div a:focus {
   outline: none;
 }
+@media only screen and (min-width: 830px) {
+  main.index section.CTA div a {
+    margin: auto 12px;
+  }
+}
 main.index section.CTA p {
   text-align: center;
   font-size: 16px;
@@ -1556,8 +1647,15 @@ main.index section.CTA p {
   width: 259px;
   margin: 28px auto;
 }
+@media only screen and (min-width: 830px) {
+  main.index section.CTA p {
+    font-size: 20px;
+    width: 600px;
+  }
+}
 
 main.index section.explication {
+  margin-top: 128px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1577,7 +1675,7 @@ main.index section.explication > div h2 {
   line-height: normal;
 }
 main.index section.explication > div > div p {
-  font-size: 12px;
+  font-size: 15px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
@@ -1588,14 +1686,40 @@ main.index section.explication > div > div ul {
   margin: 12px 38px;
 }
 main.index section.explication > div > div ul li {
-  font-size: 12px;
+  font-size: 13px;
   margin: 12px 0px 12px 0px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
 }
+@media only screen and (min-width: 830px) {
+  main.index section.explication {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 1fr;
+    gap: 12px;
+    align-items: flex-start;
+    justify-items: center;
+  }
+  main.index section.explication img {
+    width: 256px;
+  }
+  main.index section.explication > div {
+    gap: 21px;
+  }
+  main.index section.explication > div h2 {
+    font-size: 24px;
+  }
+  main.index section.explication > div > div p {
+    font-size: 18px;
+  }
+  main.index section.explication > div > div ul li {
+    font-size: 17px;
+  }
+}
 
 main.index section.consults {
+  margin-top: 64px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1617,6 +1741,16 @@ main.index section.consults h2 a:hover {
 main.index section.consults i {
   font-size: 32px;
   margin: 24px auto;
+}
+@media only screen and (min-width: 830px) {
+  main.index section.consults {
+    flex-direction: row;
+    padding: 0px 128px;
+  }
+  main.index section.consults h2 {
+    font-size: 21px;
+    max-width: 600px;
+  }
 }
 
 main.index {

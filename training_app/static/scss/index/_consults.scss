@@ -1,5 +1,6 @@
 main.index{
     section.consults{
+        margin-top: 64px;
         @include flex(column, center, center);
         h2{
             font-size: 16px;
@@ -17,6 +18,14 @@ main.index{
         i{
             font-size: 32px;
             margin: 24px auto;
+        }
+        @media only screen and (min-width:830px){
+            flex-direction: row;
+            padding: 0px 128px;
+            h2{
+                font-size: 21px;
+                max-width: 600px;
+            }
         }
     }
 }
