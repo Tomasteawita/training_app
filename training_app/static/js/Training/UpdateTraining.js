@@ -36,10 +36,14 @@ function IncrementDecrementInputs(idBlock, idExercise, blockReps) {
 
     sub.addEventListener('click', () => {
         console.log("Estoy por entrar al if:" + lenghtInputs);
-        if (lenghtInputs > 1) {
+        if (document.querySelectorAll(`#inputs_${idBlock}_${idExercise}_kgs input`).length > 1) {
             repsInputId.removeChild(repsInputId.lastChild);
             kgsInputId.removeChild(kgsInputId.lastChild);
             lenghtInputs --;
+            while (lenghtInputs != document.querySelectorAll(`#inputs_${idBlock}_${idExercise}_kgs input`).length) {
+                repsInputId.removeChild(repsInputId.lastChild);
+                kgsInputId.removeChild(kgsInputId.lastChild);
+            }
             console.log("Decremento -> La cantidad de inputs es:" + lenghtInputs);
             
         }

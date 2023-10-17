@@ -117,7 +117,6 @@ class SingUpView(CreateView):
 class LoginView(LoginView):
     template_name = 'login/login.html'
     
-    # cuando el usuario se loguee, se redirige al dashboard
     def get_success_url(self):
         return reverse('DashboardView')
 
